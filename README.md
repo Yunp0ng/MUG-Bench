@@ -129,8 +129,8 @@ Each level file follows this structure:
 - `query_id`: original query identifier from the cleaned benchmark pipeline
 - `topic`: topic tag carried from evidence mining / QA construction
 - `pattern`: normalized reasoning pattern
-  - `L1` / `L2`: usually `N/A`
-  - `L3`: commonly `A`, `B`, or `C`
+  - `L1` / `L2`: always `N/A`
+  - `L3`: `A`, `B`, or `C`
 - `question`: benchmark question
 - `gold_answer`: manually cleaned reference answer
 - `evidence_ids`: transcript utterance IDs supporting the answer

@@ -27,7 +27,9 @@ def dump_json(path: Path, data) -> None:
         f.write("\n")
 
 
-def normalize_pattern(pattern: object) -> str:
+def normalize_pattern(level: str, pattern: object) -> str:
+    if level in {"L1", "L2"}:
+        return "N/A"
     text = str(pattern or "N/A").strip()
     if ("A" in text and "决策反转" in text) or text in {"A", "A:", "A："}:
         return "A"
@@ -68,7 +70,7 @@ def quality_score(level: str, sample: dict) -> int:
             score += 2
         if sample.get("audit_primary_issue") == "none":
             score += 2
-        if normalize_pattern(sample.get("pattern")) in {"A", "B", "C"}:
+        if normalize_pattern(level, sample.get("pattern")) in {"A", "B", "C"}:
             score += 1
     return score
 
@@ -109,7 +111,7 @@ def collect_candidates(benchmark_root: Path, transcript_root: Path) -> dict[str,
                 row["_level"] = level
                 row["_source_file"] = benchmark["source_file"]
                 row["_transcript_split"] = split
-                row["_pattern_norm"] = normalize_pattern(sample.get("pattern"))
+                row["_pattern_norm"] = normalize_pattern(level, sample.get("pattern"))
                 row["_quality"] = quality_score(level, row)
                 out[level].append(row)
 
@@ -182,9 +184,9 @@ def select_samples(candidates: dict[str, list[dict]]) -> dict[str, list[dict]]:
     l1 = []
     for row in candidates["L1"]:
         row = dict(row)
-        row["_group"] = row["_pattern_norm"]
+        row["_group"] = "all"
         l1.append(row)
-    selected["L1"] = take_diverse(l1, TARGET_PER_LEVEL, ["N/A", "A", "B", "C"])
+    selected["L1"] = take_diverse(l1, TARGET_PER_LEVEL, ["all"])
 
     l2 = []
     for row in candidates["L2"]:

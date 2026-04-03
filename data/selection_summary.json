@@ -4,10 +4,7 @@
       "sample_count": 50,
       "source_files": 50,
       "pattern_distribution": {
-        "N/A": 15,
-        "A": 14,
-        "B": 14,
-        "C": 7
+        "N/A": 50
       }
     },
     "L2": {
@@ -27,5 +24,5 @@
       }
     }
   },
-  "unique_transcript_count": 113
+  "unique_transcript_count": 116
 }
