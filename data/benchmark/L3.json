@@ -1,0 +1,801 @@
+{
+  "dataset": "EMUG-Bench",
+  "subset": "vcsum_sampled_release",
+  "level": "L3",
+  "sample_count": 50,
+  "samples": [
+    {
+      "sample_id": "emug_l3_001",
+      "level": "L3",
+      "source_file": "mug_vcsum_250438688.json",
+      "query_id": "mug_vcsum_250438688.json_L3_0",
+      "topic": "云游戏/电视相关平台从2014搁置到2019启动",
+      "pattern": "A",
+      "question": "关于电视端云游戏平台的推进结论是什么？",
+      "gold_answer": "最终决定是于2019年整合电视、互联网与相关技术部门，正式启动并建设电视端云游戏平台；此前因算力条件不足未推进，待条件成熟后再启动。",
+      "evidence_ids": [
+        21,
+        22
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_250438688.json"
+    },
+    {
+      "sample_id": "emug_l3_002",
+      "level": "L3",
+      "source_file": "mug_vcsum_678231422.json",
+      "query_id": "mug_vcsum_678231422.json_L3_0",
+      "topic": "在平利推进绞股蓝产业的明确承诺",
+      "pattern": "B",
+      "question": "关于在平利推进绞股蓝产业的结论是什么？",
+      "gold_answer": "会议结论是：在平利明确推进并推动绞股蓝产业发展。简要说明：发言人在会上作出“表一个态”的明确承诺，表示将在平利发展并推动该产业落地。",
+      "evidence_ids": [
+        52,
+        56
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_678231422.json"
+    },
+    {
+      "sample_id": "emug_l3_003",
+      "level": "L3",
+      "source_file": "mug_vcsum_205336505.json",
+      "query_id": "mug_vcsum_205336505.json_L3_0",
+      "topic": "偏题讨论被婉拒（特斯拉话题）",
+      "pattern": "C",
+      "question": "关于是否在会议中讨论“最近特斯拉的事情”的最终决定是什么？",
+      "gold_answer": "最终决定是不展开该话题，将其搁置，认为与当前议程关联不强，会议继续聚焦在大湾区在职博士与职称发展等相关议题。",
+      "evidence_ids": [
+        39
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_205336505.json"
+    },
+    {
+      "sample_id": "emug_l3_004",
+      "level": "L3",
+      "source_file": "mug_vcsum_678314247.json",
+      "query_id": "mug_vcsum_678314247.json_L3_0",
+      "topic": "中国能源结构中核电的定位与占比",
+      "pattern": "A",
+      "question": "关于未来中国能源结构中核电的定位与占比的结论是什么？",
+      "gold_answer": "结论：未来中国将坚持多元化的能源结构，核电在确保安全的前提下定位为“骨干能源”，承担关键的电网稳定作用，作为低碳且可稳定满负荷运行的基础支撑，不设定刚性占比目标。理由：核电碳排放低且稳定性强，适合提供系统的基荷与稳定性，而整体结构需多元互补。",
+      "evidence_ids": [
+        17,
+        19
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_678314247.json"
+    },
+    {
+      "sample_id": "emug_l3_005",
+      "level": "L3",
+      "source_file": "mug_vcsum_420385687.json",
+      "query_id": "mug_vcsum_420385687.json_L3_1",
+      "topic": "面向老年群体的核心产品与服务决策（长辈模式与人工热线）",
+      "pattern": "B",
+      "question": "关于面向老年群体的核心产品与服务决策的结论是什么？",
+      "gold_answer": "结论是：上线“长辈模式”，并开通“暖洋洋热线”为65岁以上用户提供直达人工客服（明确非机器人）。理由：这两项为明确的产品与服务战略承诺，区别于界面简化、话术培训等操作性细节。",
+      "evidence_ids": [
+        44,
+        46,
+        48
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_420385687.json"
+    },
+    {
+      "sample_id": "emug_l3_006",
+      "level": "L3",
+      "source_file": "mug_vcsum_244595404.json",
+      "query_id": "mug_vcsum_244595404.json_L3_0",
+      "topic": "对家长批评的理性纠错被间接惩罚化处理",
+      "pattern": "C",
+      "question": "关于孩子提出“批评需严谨、未发生的事不应指责”的建议，最终结论是什么？",
+      "gold_answer": "该建议未被采纳，属于隐性拒绝；家长以更改其电脑、手机、iPad密码的行动性惩罚替代讨论，间接压制了该理性纠错。理由：未出现正面回应或改进批评方式，取而代之的是惩罚性操作，显示最终决策为拒绝。",
+      "evidence_ids": [
+        13
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_244595404.json"
+    },
+    {
+      "sample_id": "emug_l3_007",
+      "level": "L3",
+      "source_file": "mug_vcsum_977407060.json",
+      "query_id": "mug_vcsum_977407060.json_L3_0",
+      "topic": "门岗机器人因缺乏服务“温度”被搁置",
+      "pattern": "A",
+      "question": "关于“黑猫”门岗机器人的结论是什么？",
+      "gold_answer": "最终决定是将其搁置，不用来替代人工门岗。理由：客户普遍反馈缺乏“温度”、对管理感知下降，未获客户认可；公司明确原则是未获客户认可的产品一律放一边，仅当AI与“温度”结合并获得客户认可时才推进。",
+      "evidence_ids": [
+        30,
+        31
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_977407060.json"
+    },
+    {
+      "sample_id": "emug_l3_008",
+      "level": "L3",
+      "source_file": "mug_vcsum_897216891.json",
+      "query_id": "mug_vcsum_897216891.json_L3_0",
+      "topic": "合作策略：全面开放与多层级合作方式",
+      "pattern": "B",
+      "question": "关于该团队在元宇宙空间（换立方/X spaces）对外合作策略的结论是什么？",
+      "gold_answer": "结论：采取全面开放的合作策略，面向企业与个人均欢迎，合作形式从项目合作到战略合作再到合伙人模式均可，并鼓励与各垂直领域（如营销、教育、NFT等）共建应用场景。简要说明：在大量背景信息之后，嘉宾明确表态“全面开放欢迎”，并具体列出多层级合作方式。",
+      "evidence_ids": [
+        58,
+        59,
+        62
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_897216891.json"
+    },
+    {
+      "sample_id": "emug_l3_009",
+      "level": "L3",
+      "source_file": "mug_vcsum_246035100.json",
+      "query_id": "mug_vcsum_246035100.json_L3_0",
+      "topic": "受邀演讲的婉拒与延期",
+      "pattern": "C",
+      "question": "关于其此次大会演讲邀请的结论是什么？",
+      "gold_answer": "他婉拒了本次演讲安排，决定将机会留待以后；理由是本月行程繁忙，无法准备PPT。",
+      "evidence_ids": [
+        3
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_246035100.json"
+    },
+    {
+      "sample_id": "emug_l3_010",
+      "level": "L3",
+      "source_file": "mug_vcsum_242845405.json",
+      "query_id": "mug_vcsum_242845405.json_L3_0",
+      "topic": "直播课时长决策（10分钟提议→20分钟定案）",
+      "pattern": "A",
+      "question": "关于直播课时长的结论是什么？",
+      "gold_answer": "直播课时长最终定为控制在约20分钟。理由：会议中对“20分钟左右”的方案得到主持人当场认可，作为拍板决定。",
+      "evidence_ids": [
+        55,
+        56,
+        57
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_242845405.json"
+    },
+    {
+      "sample_id": "emug_l3_011",
+      "level": "L3",
+      "source_file": "mug_vcsum_46996148.json",
+      "query_id": "mug_vcsum_46996148.json_L3_0",
+      "topic": "市场验证后的战略定调（信心确立与聚焦提升品质）",
+      "pattern": "B",
+      "question": "关于市场验证后团队的战略定调，最终结论是什么？",
+      "gold_answer": "市场可行性已被验证，普通观众的接受度得到确认并建立了信心；后续战略是在既有方向上继续推进，集中资源提升作品品质与完善管理流程，“只剩下怎么把它做得更好吃”，不再为可行性做额外验证。",
+      "evidence_ids": [
+        17,
+        18,
+        19,
+        21,
+        22,
+        23
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_46996148.json"
+    },
+    {
+      "sample_id": "emug_l3_012",
+      "level": "L3",
+      "source_file": "mug_vcsum_294580511.json",
+      "query_id": "mug_vcsum_294580511.json_L3_0",
+      "topic": "数据共享请求被搁置（隐性拒绝）",
+      "pattern": "C",
+      "question": "关于向南京某区申请共享企业经营相关数据以开展免费分析项目的结论是什么？",
+      "gold_answer": "该数据共享请求被实际搁置（隐性拒绝）；对方未提供关键经营类数据（如税务、银行），仅口头同意提供手头数据，导致项目只能做粗略分析、未能实质推进。",
+      "evidence_ids": [
+        17
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_294580511.json"
+    },
+    {
+      "sample_id": "emug_l3_013",
+      "level": "L3",
+      "source_file": "mug_vcsum_343553914.json",
+      "query_id": "mug_vcsum_343553914.json_L3_0",
+      "topic": "因技术故障导致议程从AR介绍临时切换到VR介绍",
+      "pattern": "A",
+      "question": "关于现场技术介绍议程的结论是什么？",
+      "gold_answer": "会议最终决定临时将原定的AR介绍切换为由Speaker 3主导的VR方向介绍，重点聚焦VR投流方案与线下多人联机VR游戏的落地部署；因出现技术掉线，AR环节当场无法继续。",
+      "evidence_ids": [
+        1,
+        5,
+        6
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_343553914.json"
+    },
+    {
+      "sample_id": "emug_l3_014",
+      "level": "L3",
+      "source_file": "mug_vcsum_679937036.json",
+      "query_id": "mug_vcsum_679937036.json_L3_0",
+      "topic": "吸引年轻人扎根养老行业的核心抓手：职业化与地位提升而非口号倡导",
+      "pattern": "B",
+      "question": "关于吸引年轻人扎根养老行业的结论是什么？",
+      "gold_answer": "采取系统性职业化路径而非口号倡导：确立养老的专业职业身份，完善职业认证/技能/资格与保障，提升薪酬与社会地位，把岗位从“保姆/低端”定位升级为有发展、稳定的专业职业，以此持续吸引并留住年轻人。简要说明：只有职业认同与制度化待遇，才能稳定人才、减少流失，推动产业做大做强。",
+      "evidence_ids": [
+        24,
+        25,
+        26,
+        27,
+        39,
+        40
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_679937036.json"
+    },
+    {
+      "sample_id": "emug_l3_015",
+      "level": "L3",
+      "source_file": "mug_vcsum_373657917.json",
+      "query_id": "mug_vcsum_373657917.json_L3_0",
+      "topic": "疫情期间组团访问英国的服务被婉转推迟",
+      "pattern": "C",
+      "question": "关于疫情期间“组团访问英国”这项服务的结论是什么？",
+      "gold_answer": "最终决定是暂缓开展并搁置当前安排，待疫情缓解、疫苗在全境接种后再考虑恢复推进。理由：发言者明确表示“现在并不是特别合适”，并预期随着疫苗接种情况好转后再行安排。",
+      "evidence_ids": [
+        3
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_373657917.json"
+    },
+    {
+      "sample_id": "emug_l3_016",
+      "level": "L3",
+      "source_file": "mug_vcsum_415122095.json",
+      "query_id": "mug_vcsum_415122095.json_L3_0",
+      "topic": "休息与评图流程决定",
+      "pattern": "A",
+      "question": "关于休息与评图流程的结论是什么？",
+      "gold_answer": "最终决定是取消原定的5分钟休息，立即开始评图；主持人现场改口，直接启动评图流程。",
+      "evidence_ids": [
+        89,
+        95,
+        96
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_415122095.json"
+    },
+    {
+      "sample_id": "emug_l3_017",
+      "level": "L3",
+      "source_file": "mug_vcsum_753295944.json",
+      "query_id": "mug_vcsum_753295944.json_L3_2",
+      "topic": "加快制定家庭教育法的政策信号",
+      "pattern": "B",
+      "question": "关于家庭教育立法的结论是什么？",
+      "gold_answer": "应加快制定《家庭教育法》，以法律进一步明确政府、学校、社会与家长在家庭教育中的角色与责任，为家校协同提供清晰的制度依据。",
+      "evidence_ids": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_753295944.json"
+    },
+    {
+      "sample_id": "emug_l3_018",
+      "level": "L3",
+      "source_file": "mug_vcsum_846800286.json",
+      "query_id": "mug_vcsum_846800286.json_L3_0",
+      "topic": "对董事会“一亿推进数字化转型”的委婉推迟/搁置",
+      "pattern": "C",
+      "question": "关于董事会提出今年投入一亿元推进数字化转型的提议，最终结论是什么？",
+      "gold_answer": "最终决定是暂缓/搁置今年的一亿元数字化转型投入，不在今年落地推进；理由是评估发现企业仍处于BPIT阶段，与数字化转型存在明显距离，需先完善基础能力再讨论大规模投入。",
+      "evidence_ids": [
+        23
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_846800286.json"
+    },
+    {
+      "sample_id": "emug_l3_019",
+      "level": "L3",
+      "source_file": "mug_vcsum_719591148.json",
+      "query_id": "mug_vcsum_719591148.json_L3_0",
+      "topic": "发言顺序决策反转",
+      "pattern": "A",
+      "question": "关于本轮讨论的发言顺序，最终结论是什么？",
+      "gold_answer": "最终由其他嘉宾先行发言，Christine 暂缓发言；因其表示需要思考并请他人先说，实际顺序从“Christine 先”反转为“他人先”。",
+      "evidence_ids": [
+        26,
+        27,
+        28
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_719591148.json"
+    },
+    {
+      "sample_id": "emug_l3_020",
+      "level": "L3",
+      "source_file": "mug_vcsum_211624651.json",
+      "query_id": "mug_vcsum_211624651.json_L3_0",
+      "topic": "高考志愿填报中“大学优先还是专业优先”的分档决策原则",
+      "pattern": "B",
+      "question": "关于高考志愿填报中“大学优先还是专业优先”的最终分档决策是什么？",
+      "gold_answer": "结论是按成绩分档：成绩特别好时大学优先（好大学更重要）；成绩中等、够到中上层次高校时专业优先（在211/一本等院校尽量冲好专业，增强就业竞争力）；成绩较低时仍以大学优先（尽量选择风气与环境较好的大学，专业次之）。理由：企业招聘的首轮门槛更看学校，体制资源呈金字塔集中，且大学环境对价值观与成长影响更长期。",
+      "evidence_ids": [
+        25,
+        36,
+        41,
+        52,
+        53,
+        54,
+        55
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_211624651.json"
+    },
+    {
+      "sample_id": "emug_l3_021",
+      "level": "L3",
+      "source_file": "mug_vcsum_208364976.json",
+      "query_id": "mug_vcsum_208364976.json_L3_0",
+      "topic": "广东组建国家级研发机构及创新联合体的可行性讨论被时间理由搁置",
+      "pattern": "C",
+      "question": "关于广东组建汽车国家级研发机构及创新联合体的结论是什么？",
+      "gold_answer": "结论是该议题被搁置，未形成任何正式决定或推进安排。简要说明：以时间为由转入其他环节，未在会议内作出实质性结论，体现为隐性拒绝当前推进。",
+      "evidence_ids": [
+        78,
+        84
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_208364976.json"
+    },
+    {
+      "sample_id": "emug_l3_022",
+      "level": "L3",
+      "source_file": "mug_vcsum_764861193.json",
+      "query_id": "mug_vcsum_764861193.json_L3_0",
+      "topic": "是否开启观众提问互动环节",
+      "pattern": "A",
+      "question": "关于是否开启观众提问互动环节的结论是什么？",
+      "gold_answer": "最终决定开启观众提问互动环节。主持人随后确认观众提了很多问题并进行筛选后代表观众发问，会议正式进入Q&A。",
+      "evidence_ids": [
+        45,
+        48,
+        64
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_764861193.json"
+    },
+    {
+      "sample_id": "emug_l3_023",
+      "level": "L3",
+      "source_file": "mug_vcsum_245442988.json",
+      "query_id": "mug_vcsum_245442988.json_L3_0",
+      "topic": "区块链在金融/供应链金融的落地与收费可行性",
+      "pattern": "C",
+      "question": "关于区块链在科技金融（餐饮供应链融资）应用与收费落地的结论是什么？",
+      "gold_answer": "最终决定是暂不推进具体落地与收费，先保持观望并等待银行端试点结果，待形成明确的可执行案例与收费模式后再评估。理由：当前仅处于内部调试与未来预期阶段，未提供可操作的收费方案或已落地的商业案例，无法支撑即刻上线或投资。",
+      "evidence_ids": [
+        23,
+        27
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_245442988.json"
+    },
+    {
+      "sample_id": "emug_l3_024",
+      "level": "L3",
+      "source_file": "mug_vcsum_838375651.json",
+      "query_id": "mug_vcsum_838375651.json_L3_0",
+      "topic": "“最快上市路径”从mRNA倾向转为灭活疫苗优先",
+      "pattern": "A",
+      "question": "关于新冠疫苗最快上市路径的结论是什么？",
+      "gold_answer": "最终结论是：以灭活疫苗作为优先、最快的上市路径。理由：专家一致判断灭活路线更稳妥、最有可能率先上市；国内进入临床的主力也以灭活为主，印证其优先性，而mRNA等新型路径仍需更长的安全性与有效性考核。",
+      "evidence_ids": [
+        32,
+        41,
+        67
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_838375651.json"
+    },
+    {
+      "sample_id": "emug_l3_025",
+      "level": "L3",
+      "source_file": "mug_vcsum_26230473.json",
+      "query_id": "mug_vcsum_26230473.json_L3_0",
+      "topic": "是否讨论人工智能发展的阻碍",
+      "pattern": "C",
+      "question": "关于是否在会上正面讨论并列举人工智能进一步发展与落地的主要阻碍，结论是什么？",
+      "gold_answer": "结论是不展开阻碍清单讨论，而将重心转向产业化落地与寻找具体行业切入点；发言未正面列出“最大阻碍”，而是强调利用现有技术在具体行业深耕。",
+      "evidence_ids": [
+        34,
+        35
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_26230473.json"
+    },
+    {
+      "sample_id": "emug_l3_026",
+      "level": "L3",
+      "source_file": "mug_vcsum_980814503.json",
+      "query_id": "mug_vcsum_980814503.json_L3_0",
+      "topic": "是否应关注货币政策（与财政政策的对比）",
+      "pattern": "A",
+      "question": "关于是否应关注货币政策的结论是什么？",
+      "gold_answer": "应当密切关注美联储的货币政策。最新发布的4月会议纪要释放出在经济按预期或加速时将讨论收紧方案的信号，意味着短期虽容忍通胀但仍可能出现小幅动作；因此相较仅盯财政政策，跟踪货币政策动向更为关键。",
+      "evidence_ids": [
+        12,
+        14,
+        15
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_980814503.json"
+    },
+    {
+      "sample_id": "emug_l3_027",
+      "level": "L3",
+      "source_file": "mug_vcsum_292353400.json",
+      "query_id": "mug_vcsum_292353400.json_L3_0",
+      "topic": "对热门赛道中‘新能源’的婉拒配置（隐性拒绝）",
+      "pattern": "C",
+      "question": "关于在热门赛道中是否选择“新能源”，最终决定是什么？",
+      "gold_answer": "不参与、不做配置。理由：基金经理不认可该赛道的商业格局，且团队不具备相应的技术与定价跟踪能力，因此不投入该赛道。",
+      "evidence_ids": [
+        107,
+        110
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_292353400.json"
+    },
+    {
+      "sample_id": "emug_l3_028",
+      "level": "L3",
+      "source_file": "mug_vcsum_201751518.json",
+      "query_id": "mug_vcsum_201751518.json_L3_0",
+      "topic": "家庭教育与学校教育是否有边界的立场反转",
+      "pattern": "A",
+      "question": "关于“家庭教育与学校教育是否有边界”的结论是什么？",
+      "gold_answer": "最终决定是：两者存在明确边界，并在合作框架下分工协作。学校将家长定位为平等的战略合作伙伴，通过系统化的培训和制度化安排厘清职责边界，实现家校同频共振与协同育人。",
+      "evidence_ids": [
+        74,
+        86,
+        87,
+        100
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_201751518.json"
+    },
+    {
+      "sample_id": "emug_l3_029",
+      "level": "L3",
+      "source_file": "mug_vcsum_294030404.json",
+      "query_id": "mug_vcsum_294030404.json_L3_0",
+      "topic": "是否立即推动儿童作品对外发表的提议被以‘先打基础、再升维’婉转推迟",
+      "pattern": "C",
+      "question": "关于是否立即推动儿童作品对外发表的结论是什么？",
+      "gold_answer": "结论是暂不立即推动对外发表，改为先打牢2–5年的基础教育后再升维培养、分阶段推进。理由：发言强调“先打基础、再升维”，指向将“立刻发表”诉求转为长期培养。",
+      "evidence_ids": [
+        54,
+        55
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_294030404.json"
+    },
+    {
+      "sample_id": "emug_l3_030",
+      "level": "L3",
+      "source_file": "mug_vcsum_205255189.json",
+      "query_id": "mug_vcsum_205255189.json_L3_0",
+      "topic": "智能设计是否替代建筑师的立场反转",
+      "pattern": "A",
+      "question": "关于“智能设计是否会替代建筑师”的结论是什么？",
+      "gold_answer": "最终决定是：将以自动设计软件取代建筑师为明确目标，推进实验室与设备建设以实现全面自动化；建筑师角色将转型直至消失，建筑教育需据此调整。理由：会议明确把“自动设计替代”作为执行路径并投入资源落地。",
+      "evidence_ids": [
+        48,
+        50,
+        52,
+        55
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_205255189.json"
+    },
+    {
+      "sample_id": "emug_l3_031",
+      "level": "L3",
+      "source_file": "mug_vcsum_329500203.json",
+      "query_id": "mug_vcsum_329500203.json_L3_0",
+      "topic": "同学想画漫画 vs 父母的隐性拒绝",
+      "pattern": "C",
+      "question": "关于这位同学提出“坚持画漫画”的提议，最终结论是什么？",
+      "gold_answer": "结论：该提议被隐性否决，处于搁置状态，未获推进。父母虽未直接说“不行”，但以“不太同意”与反复阻止的方式使其未能通过。",
+      "evidence_ids": [
+        24,
+        26
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_329500203.json"
+    },
+    {
+      "sample_id": "emug_l3_032",
+      "level": "L3",
+      "source_file": "mug_vcsum_422301629.json",
+      "query_id": "mug_vcsum_422301629.json_L3_1",
+      "topic": "现场互动环节从开启提议到取消并改期的决策反转",
+      "pattern": "A",
+      "question": "关于现场互动环节的最终安排结论是什么？",
+      "gold_answer": "最终决定是当场不开展互动，直接收尾并进入下一场论坛，相关话题留待后续继续对话（因时间已到）。",
+      "evidence_ids": [
+        61,
+        62,
+        84,
+        90
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_422301629.json"
+    },
+    {
+      "sample_id": "emug_l3_033",
+      "level": "L3",
+      "source_file": "mug_vcsum_331286888.json",
+      "query_id": "mug_vcsum_331286888.json_L3_1",
+      "topic": "开设数字人文硕士项目的搁置与条件化回应",
+      "pattern": "C",
+      "question": "关于开设数字人文硕士教育的结论是什么？",
+      "gold_answer": "结论是未承诺启动数字人文硕士项目，选择搁置并以条件化处理：当前不推进设立独立学位点，更可能以项目制或组合课程探索；是否能设专业或二级学科取决于各校学科基础与审批机制。",
+      "evidence_ids": [
+        20,
+        24
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_331286888.json"
+    },
+    {
+      "sample_id": "emug_l3_034",
+      "level": "L3",
+      "source_file": "mug_vcsum_511384584.json",
+      "query_id": "mug_vcsum_511384584.json_L3_0",
+      "topic": "开源雨林对接渠道从单一路径转为多路径",
+      "pattern": "A",
+      "question": "关于开源雨林对接渠道的结论是什么？",
+      "gold_answer": "从仅依赖自家OSR社区与交流群的单一路径，调整为多路径对接：在现有渠道之外将新增更中立的对接通道（如由中软协牵头的平台）。理由：主办方现场表态“条条大路通罗马，我们再多建一条”，明确接受增加新渠道以提升对接便利性。",
+      "evidence_ids": [
+        72,
+        74,
+        75,
+        76
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_511384584.json"
+    },
+    {
+      "sample_id": "emug_l3_035",
+      "level": "L3",
+      "source_file": "mug_vcsum_38425512.json",
+      "query_id": "mug_vcsum_38425512.json_L3_0",
+      "topic": "对酒店卫生问题“带记录仪”方案的委婉否决",
+      "pattern": "C",
+      "question": "关于将“保洁员佩戴记录仪/摄像头”作为酒店卫生管理措施的最终结论是什么？",
+      "gold_answer": "该方案被隐性否定，最终不作为采纳的方向；结论是应以信任、质量与品牌为核心建立长期机制，而非依赖监控等短期权宜之计。理由：讨论明确指出摄像头只能解一时之急，无法解决根本的信任与品牌问题。",
+      "evidence_ids": [
+        46,
+        44
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_38425512.json"
+    },
+    {
+      "sample_id": "emug_l3_036",
+      "level": "L3",
+      "source_file": "mug_vcsum_541795525.json",
+      "query_id": "mug_vcsum_541795525.json_L3_0",
+      "topic": "因信号问题调整访谈顺序：从张成刚转向张梦汀",
+      "pattern": "A",
+      "question": "关于第三位专家访谈安排的结论是什么？",
+      "gold_answer": "最终决定是：因张成刚在高铁上信号不稳，现场调整访谈顺序，先改为向张梦庆提问，张成刚的环节暂缓，待信号稳定后再回答。简要说明：此举确保对话顺畅，避免信号干扰。",
+      "evidence_ids": [
+        25,
+        26,
+        28,
+        29
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_541795525.json"
+    },
+    {
+      "sample_id": "emug_l3_037",
+      "level": "L3",
+      "source_file": "mug_vcsum_413617156.json",
+      "query_id": "mug_vcsum_413617156.json_L3_0",
+      "topic": "对产业化建议的婉拒与搁置",
+      "pattern": "C",
+      "question": "关于由毕老师提出产业化应用建议的结论是什么？",
+      "gold_answer": "结论是该提议被婉拒并暂不推进，会议未形成任何产业化建议或落地安排；毕老师仅表示如有需要可交流参与，这不构成承诺。理由：其明确称“完全不懂产业化、不能班门弄斧”，因此实际上搁置了该议题。",
+      "evidence_ids": [
+        51,
+        52
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_413617156.json"
+    },
+    {
+      "sample_id": "emug_l3_038",
+      "level": "L3",
+      "source_file": "mug_vcsum_928992585.json",
+      "query_id": "mug_vcsum_928992585.json_L3_0",
+      "topic": "增长关键词环节的规则从“只讲一个词”反转为接受“两个词/两阶段”",
+      "pattern": "A",
+      "question": "关于增长关键词环节的规则的结论是什么？",
+      "gold_answer": "最终决定是采用“两词/两阶段”的框架：1-10阶段以“产品定位”为核心，10-100阶段以“系统化能力”为核心。原因在于增长路径分为两个本质不同的阶段，需要分别提炼关键要点。",
+      "evidence_ids": [
+        15,
+        34,
+        35,
+        36
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_928992585.json"
+    },
+    {
+      "sample_id": "emug_l3_039",
+      "level": "L3",
+      "source_file": "mug_vcsum_456490571.json",
+      "query_id": "mug_vcsum_456490571.json_L3_0",
+      "topic": "功能性创客/木工空间因师资不足被搁置并转向可用性更高的空间配置",
+      "pattern": "C",
+      "question": "关于学校是否继续推进创客/木工等功能性空间建设的结论是什么？",
+      "gold_answer": "最终决定是暂缓这类创客/木工等功能性空间的推进，转而将校园资源重配为可即用、使用率更高的通用与非正式学习空间（如分散配置乐器、体育器材与创意交流区域等），以保证实际落地与高频使用；主要基于师资不足导致功能性空间短期内难以有效运转。",
+      "evidence_ids": [
+        40,
+        41
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_456490571.json"
+    },
+    {
+      "sample_id": "emug_l3_040",
+      "level": "L3",
+      "source_file": "mug_vcsum_547140663.json",
+      "query_id": "mug_vcsum_547140663.json_L3_0",
+      "topic": "技术发展对文化的影响程度与方向",
+      "pattern": "A",
+      "question": "关于技术发展对文化的影响程度与方向的结论是什么？",
+      "gold_answer": "最终决定：文化内核保持稳定，但在互联网与云计算等技术推动下，其外在表现（如社交方式与应用形态）将发生显著变化，催生新的文化形式；理由：技术主要重塑表达与实践层，而非人性所构成的文化根基。",
+      "evidence_ids": [
+        132,
+        136,
+        139,
+        140,
+        141
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_547140663.json"
+    },
+    {
+      "sample_id": "emug_l3_041",
+      "level": "L3",
+      "source_file": "mug_vcsum_500961867.json",
+      "query_id": "mug_vcsum_500961867.json_L3_2",
+      "topic": "对将全球关键通道风险纳入供应链韧性模型的请求被以“数据/理解有限”委婉推迟",
+      "pattern": "C",
+      "question": "关于将全球关键通道（如运河/关口）卡断风险纳入粮食供应链韧性模型的结论是什么？",
+      "gold_answer": "结论是暂不纳入、暂缓处理：由于对全球范围问题的理解与数据来源有限，未做出立即纳入的承诺，仅表示未来可与各方合作进一步探索。",
+      "evidence_ids": [
+        64,
+        65
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_500961867.json"
+    },
+    {
+      "sample_id": "emug_l3_042",
+      "level": "L3",
+      "source_file": "mug_vcsum_458297236.json",
+      "query_id": "mug_vcsum_458297236.json_L3_0",
+      "topic": "圆桌超时后的发言规则/时间管理决策反转",
+      "pattern": "A",
+      "question": "关于圆桌超时后的发言规则的结论是什么？",
+      "gold_answer": "最终决定是采用“每位嘉宾限时简短发言（约一人一分钟）”的规则，并据此依次点名多位嘉宾轮流回答；随后多位连续发言的记录印证了该规则已被执行。",
+      "evidence_ids": [
+        35,
+        36,
+        39,
+        40,
+        41,
+        42
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_458297236.json"
+    },
+    {
+      "sample_id": "emug_l3_043",
+      "level": "L3",
+      "source_file": "mug_vcsum_507457818.json",
+      "query_id": "mug_vcsum_507457818.json_L3_0",
+      "topic": "加氢站基础设施能否匹配即将到来的车辆增长",
+      "pattern": "C",
+      "question": "关于嘉兴站能否按预期支撑近几年燃料电池汽车快速增长的结论是什么？",
+      "gold_answer": "结论是未作出正面承诺，相关推进被暂缓并转入进一步论证与专家意见征询；因土地规划与投资成本等关键问题未解决，当前无法确认基础设施能跟上。",
+      "evidence_ids": [
+        15,
+        16
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_507457818.json"
+    },
+    {
+      "sample_id": "emug_l3_044",
+      "level": "L3",
+      "source_file": "mug_vcsum_626012574.json",
+      "query_id": "mug_vcsum_626012574.json_L3_0",
+      "topic": "是否使用PPT进行展示的实时决策转变",
+      "pattern": "A",
+      "question": "关于是否使用PPT进行展示的结论是什么？",
+      "gold_answer": "最终决定是放弃使用PPT进行展示，改为不依赖PPT的讲述；原因是PPT无法正常配合展示，Speaker 6当场表示“那就算了”并停止使用。",
+      "evidence_ids": [
+        32,
+        33,
+        35,
+        37,
+        38,
+        39
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_626012574.json"
+    },
+    {
+      "sample_id": "emug_l3_045",
+      "level": "L3",
+      "source_file": "mug_vcsum_586218090.json",
+      "query_id": "mug_vcsum_586218090.json_L3_0",
+      "topic": "是否重启英超版权争夺",
+      "pattern": "C",
+      "question": "关于是否在2021赛季重启英超版权争夺的结论是什么？",
+      "gold_answer": "结论是暂不重启英超版权争夺（搁置评估）：未作投入承诺，当前战略重心在平台内容生态的整体整合，单一赛事的得失不被优先考虑。",
+      "evidence_ids": [
+        52,
+        53
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_586218090.json"
+    },
+    {
+      "sample_id": "emug_l3_046",
+      "level": "L3",
+      "source_file": "mug_vcsum_591638271.json",
+      "query_id": "mug_vcsum_591638271.json_L3_0",
+      "topic": "NBA Top Shot交易次数数据的委婉搁置与核实",
+      "pattern": "C",
+      "question": "关于“NBA Top Shot 交易次数是否已破10亿”的结论是什么？",
+      "gold_answer": "未被确认并暂缓结论，需待后续核实；当前仅认可交易量数据有效，交易次数破10亿的说法不作为定论。",
+      "evidence_ids": [
+        33,
+        34
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_591638271.json"
+    },
+    {
+      "sample_id": "emug_l3_047",
+      "level": "L3",
+      "source_file": "mug_vcsum_637705510.json",
+      "query_id": "mug_vcsum_637705510.json_L3_0",
+      "topic": "“孤独点火计划”从构想到被搁置",
+      "pattern": "C",
+      "question": "关于“孤独点火计划”的最终结论是什么？",
+      "gold_answer": "该计划最终被搁置，未实施。理由：受疫情等客观限制（无法进入发射场），方案未能推进。",
+      "evidence_ids": [
+        9,
+        10
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_637705510.json"
+    },
+    {
+      "sample_id": "emug_l3_048",
+      "level": "L3",
+      "source_file": "mug_vcsum_675505279.json",
+      "query_id": "mug_vcsum_675505279.json_L3_0",
+      "topic": "算力/存储投资机会的提议被搁置",
+      "pattern": "C",
+      "question": "关于算力与分布式存储投资机会的结论是什么？",
+      "gold_answer": "结论：未形成具体的投资机会或推进决定，相关提议被搁置。说明：受访者明确表示“我说不上来”，未给出可执行的投资建议，因此没有作出投资决策。",
+      "evidence_ids": [
+        91,
+        92
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_675505279.json"
+    },
+    {
+      "sample_id": "emug_l3_049",
+      "level": "L3",
+      "source_file": "mug_vcsum_680857208.json",
+      "query_id": "mug_vcsum_680857208.json_L3_0",
+      "topic": "2008年汶川地震后“空中基站”设想的阶段性搁置与再启动",
+      "pattern": "C",
+      "question": "关于“在灾害现场用长航时无人机建立应急通讯网络”的结论是什么？",
+      "gold_answer": "结论：该方案已从早期的“仅为设想”转为正式推进与落地，在技术成熟与应急部门牵引下，由相关单位联合实施，将5G/通信基站上机并与卫星及指挥控制系统打通。简要理由：当年技术未成熟而未执行，如今条件具备，项目进入推进阶段。",
+      "evidence_ids": [
+        26,
+        27
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_680857208.json"
+    },
+    {
+      "sample_id": "emug_l3_050",
+      "level": "L3",
+      "source_file": "mug_vcsum_77584426.json",
+      "query_id": "mug_vcsum_77584426.json_L3_1",
+      "topic": "阿里vs腾讯二选一的回避（M老师）",
+      "pattern": "C",
+      "question": "关于阿里与腾讯二选一的结论是什么？",
+      "gold_answer": "不当场做出二选一，也不做任何买入决定；需待进一步评估股东回报等关键因素后再考虑。理由：他强调“有前景”不等于“对股东回报好”，因此需审慎决策。",
+      "evidence_ids": [
+        39,
+        44
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_77584426.json"
+    }
+  ]
+}

@@ -1,0 +1,886 @@
+{
+  "dataset": "EMUG-Bench",
+  "subset": "vcsum_sampled_release",
+  "level": "L2",
+  "sample_count": 50,
+  "samples": [
+    {
+      "sample_id": "emug_l2_001",
+      "level": "L2",
+      "source_file": "mug_vcsum_423457962.json",
+      "query_id": "mug_vcsum_423457962.json_L2_4",
+      "topic": "面向2035的交通基础设施愿景（交通圈与金台通道）",
+      "pattern": "N/A",
+      "question": "会议中提到的2035年交通基础设施建设目标是什么？",
+      "gold_answer": "会议中提到的2035年交通基础设施建设目标包括实现“交通强国”的一二三交通圈目标，即市区内1小时通勤、城市群之间2小时到达、全国主要城市3小时全覆盖。此外，还计划建成连接平潭海峡与台湾的金台大通道，并表示在技术和能力上有信心实现这一目标。",
+      "evidence_ids": [
+        13,
+        53
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_423457962.json"
+    },
+    {
+      "sample_id": "emug_l2_002",
+      "level": "L2",
+      "source_file": "mug_vcsum_761838097.json",
+      "query_id": "mug_vcsum_761838097.json_L2_0",
+      "topic": "冒险作为美国文化核心主题的物质与精神双重维度",
+      "pattern": "N/A",
+      "question": "美国文化中冒险精神的核心内涵是什么？",
+      "gold_answer": "美国文化中的冒险精神具有物质与精神的双重维度。从物质层面看，冒险精神源于美国建国精神中的神性，与基督教传统和探索未知的心理密切相关，体现在鼓励个人独立思考和亲近自然的教育实践中。从精神层面看，冒险精神体现为对传统权威的反抗和摆脱束缚的实践，这种精神内涵在美国文学作品中也得到了体现。",
+      "evidence_ids": [
+        15,
+        25,
+        34
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_761838097.json"
+    },
+    {
+      "sample_id": "emug_l2_003",
+      "level": "L2",
+      "source_file": "mug_vcsum_247313825.json",
+      "query_id": "mug_vcsum_247313825.json_L2_0",
+      "topic": "学业规划的总体原则：尽早启动与目标导向",
+      "pattern": "N/A",
+      "question": "会议中关于学业规划的原则有哪些重要观点？",
+      "gold_answer": "会议中提出了两个重要的学业规划原则：首先，学业规划应尽早启动，因为越早开始可以更从容地制定和执行计划；其次，规划应以目标导向为核心，明确最终目标，例如留学、移民或在国内升学等，以此指导具体行动。",
+      "evidence_ids": [
+        3,
+        54
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_247313825.json"
+    },
+    {
+      "sample_id": "emug_l2_004",
+      "level": "L2",
+      "source_file": "mug_vcsum_330968913.json",
+      "query_id": "mug_vcsum_330968913.json_L2_3",
+      "topic": "城乡融合与抗冲击韧性：回旋机制、县域过渡带与农民城市权利保障",
+      "pattern": "N/A",
+      "question": "会议中提到的城乡融合发展的重点是什么？",
+      "gold_answer": "会议中提到，城乡融合发展的重点应放在县城延伸地区的城乡过渡带，而非直接将城市与乡村连接起来。同时，强调完善城乡之间的回旋机制和保障农民在城市的基本权利，以增强城乡关系的韧性和稳定性。",
+      "evidence_ids": [
+        21,
+        60,
+        63
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_330968913.json"
+    },
+    {
+      "sample_id": "emug_l2_005",
+      "level": "L2",
+      "source_file": "mug_vcsum_849908611.json",
+      "query_id": "mug_vcsum_849908611.json_L2_0",
+      "topic": "图像的中介性：在虚拟-现实统一中的认知与数据可视化的中介加工",
+      "pattern": "N/A",
+      "question": "会议中如何讨论图像作为中介的作用及其在虚拟与现实中的统一性？",
+      "gold_answer": "会议中讨论了图像作为中介的作用，指出图像应置于具体的社会和实践场景中理解其中介问题。虚拟与现实被统一为“感知的现实”，强调技术重塑认知与体验的作用。通过数据可视化的例子，说明图像化过程中的框架和模型嵌入会改变数据关系与呈现实，进一步阐述图像在认知中的中介性。",
+      "evidence_ids": [
+        34,
+        39,
+        118,
+        120,
+        125
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_849908611.json"
+    },
+    {
+      "sample_id": "emug_l2_006",
+      "level": "L2",
+      "source_file": "mug_vcsum_719277153.json",
+      "query_id": "mug_vcsum_719277153.json_L2_0",
+      "topic": "高校学者的理论支撑与引导：跟踪调研、总结特色与走红原因、指导发展方向、聚焦思想引领与议题设置",
+      "pattern": "N/A",
+      "question": "会议中提到高校学者在乡村自媒体发展中发挥了哪些作用？",
+      "gold_answer": "高校学者通过跟踪调研乡村自媒体，总结其特色和走红原因，为其提供理论支撑，指导其发展方向，并帮助其聚焦思想引领和议题设置。这些举措旨在促进乡村自媒体的持续发展和内容优化。",
+      "evidence_ids": [
+        6,
+        12
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_719277153.json"
+    },
+    {
+      "sample_id": "emug_l2_007",
+      "level": "L2",
+      "source_file": "mug_vcsum_458677412.json",
+      "query_id": "mug_vcsum_458677412.json_L2_1",
+      "topic": "非洲矿业机会与落地建议",
+      "pattern": "N/A",
+      "question": "会议中提到在非洲从事矿业开发有哪些建议和注意事项？",
+      "gold_answer": "会议中提到，在非洲从事矿业开发需要注意以下几点：首先，做好经济调查，包括资源、法务和投资环节，避免主观臆断；其次，要因地制宜，根据当地情况规划项目；最后，重视细节，避免因疏忽导致项目失败。此外，建议建立根据地，选择大公司合作，利用自身优势，顺势而为以实现发展壮大。",
+      "evidence_ids": [
+        9,
+        12,
+        58
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_458677412.json"
+    },
+    {
+      "sample_id": "emug_l2_008",
+      "level": "L2",
+      "source_file": "mug_vcsum_331286888.json",
+      "query_id": "mug_vcsum_331286888.json_L2_2",
+      "topic": "图书情报学在数字人文/新文科中的定位与任务",
+      "pattern": "N/A",
+      "question": "图书情报学在数字人文和新文科建设中扮演了什么角色？",
+      "gold_answer": "图书情报学在数字人文和新文科建设中被定位为一种桥梁角色，其任务是将专业知识与用户需求对接，同时保持自身特色并吸收其他学科的方法论，增强学科的开放性和跨学科融合能力。",
+      "evidence_ids": [
+        26,
+        27,
+        28,
+        45,
+        46,
+        59
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_331286888.json"
+    },
+    {
+      "sample_id": "emug_l2_009",
+      "level": "L2",
+      "source_file": "mug_vcsum_769241668.json",
+      "query_id": "mug_vcsum_769241668.json_L2_3",
+      "topic": "欧盟碳足迹法规的应对：以中国标准与机制提升话语权",
+      "pattern": "N/A",
+      "question": "会议中提到中国如何应对欧盟锂电池碳足迹限制？",
+      "gold_answer": "会议中提到，中国可以通过采用自身牵头的标准（如38标准和39标准），强调锂电池在绿电条件下的碳负优势，从而避免碳税。此外，建议政府利用WTO TBT机制和中国法律体系，在本土市场形成对等规则，破解技术壁垒，最终提升中国标准体系的国际话语权。",
+      "evidence_ids": [
+        23,
+        24,
+        25,
+        26,
+        60
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_769241668.json"
+    },
+    {
+      "sample_id": "emug_l2_010",
+      "level": "L2",
+      "source_file": "mug_vcsum_500961867.json",
+      "query_id": "mug_vcsum_500961867.json_L2_0",
+      "topic": "论坛时间与流程安排的起止与落实",
+      "pattern": "N/A",
+      "question": "会议中提到的论坛时间安排是怎样的？",
+      "gold_answer": "会议中提到论坛的总时长为60分钟，其中前40分钟为嘉宾发言时间，后20分钟为观众提问时间。论坛结束后安排了15分钟的茶歇时间。",
+      "evidence_ids": [
+        1,
+        49,
+        83
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_500961867.json"
+    },
+    {
+      "sample_id": "emug_l2_011",
+      "level": "L2",
+      "source_file": "mug_vcsum_503576524.json",
+      "query_id": "mug_vcsum_503576524.json_L2_1",
+      "topic": "新型电力系统与终端电气化的数字化支撑路线",
+      "pattern": "N/A",
+      "question": "会议中提到的新型电力系统的建设目标和关键技术有哪些？",
+      "gold_answer": "会议中提到，新型电力系统的建设目标是以新能源为主体，推动绿色低碳转型，并实现到2030年风光发电装机容量达到12亿千瓦的目标。关键技术包括终端电气化、储能技术、需求响应、能源互联网的建设，以及数字化技术的应用，如从设计到制造的数字化融合和智能调控系统的开发。",
+      "evidence_ids": [
+        16,
+        18,
+        44,
+        46,
+        49,
+        59
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_503576524.json"
+    },
+    {
+      "sample_id": "emug_l2_012",
+      "level": "L2",
+      "source_file": "mug_vcsum_210599506.json",
+      "query_id": "mug_vcsum_210599506.json_L2_2",
+      "topic": "妇女领袖的在场性与后续培育计划",
+      "pattern": "N/A",
+      "question": "会议中是否讨论了妇女领袖的代表性问题及相关计划？",
+      "gold_answer": "是的，会议中讨论了妇女领袖的代表性问题及相关计划。首先，有人提出现场缺少来自基层的妇女领袖项目负责人。随后，一位妇女领袖介绍了她的经历，包括她在护理和培训方面的实践，以及村里妇女领袖带动发展的情况。此外，会议还提到机构层面已组织妇女能人参与社区发展，并计划启动乡村女性致富带头人培训，以进一步支持妇女领袖的培育和发展。",
+      "evidence_ids": [
+        11,
+        14,
+        16,
+        19,
+        31
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_210599506.json"
+    },
+    {
+      "sample_id": "emug_l2_013",
+      "level": "L2",
+      "source_file": "mug_vcsum_541795525.json",
+      "query_id": "mug_vcsum_541795525.json_L2_1",
+      "topic": "十四五规划编制方法：外部咨询与内部主导的结合做法",
+      "pattern": "N/A",
+      "question": "在十四五规划的编制过程中，企业如何平衡内部主导与外部咨询的作用？",
+      "gold_answer": "在十四五规划的编制过程中，企业通常采用内部主导与外部咨询相结合的方式。外部咨询公司主要提供国际先进经验、案例、资料以及最新体系与方案的进展情况，而规划的核心内容和具体编制则由企业内部完成。这种方式确保了规划的专业性和贴合企业实际需求。",
+      "evidence_ids": [
+        17,
+        23,
+        34
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_541795525.json"
+    },
+    {
+      "sample_id": "emug_l2_014",
+      "level": "L2",
+      "source_file": "mug_vcsum_543477149.json",
+      "query_id": "mug_vcsum_543477149.json_L2_4",
+      "topic": "碳中和目标与生态系统碳汇的市场化实现",
+      "pattern": "N/A",
+      "question": "会议中提到的中国碳中和目标是什么，以及其实现路径有哪些关键点？",
+      "gold_answer": "会议中提到，中国的碳中和目标是到2060年实现碳中和。这一目标的实现路径包括明确2030年碳达峰和2060年碳中和的终点方案，强调生态系统碳汇的重要性，推动基于自然的解决方案，并建立生态资产和碳市场交易机制以支持碳中和的实现。此外，还需加强科技创新、生态保护和生态产品服务的供给能力，以提升整体生态质量和管理能力。",
+      "evidence_ids": [
+        6,
+        7,
+        8,
+        26,
+        52,
+        91
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_543477149.json"
+    },
+    {
+      "sample_id": "emug_l2_015",
+      "level": "L2",
+      "source_file": "mug_vcsum_513027814.json",
+      "query_id": "mug_vcsum_513027814.json_L2_0",
+      "topic": "平等主义的内在矛盾与“主人的工具/房子”隐喻揭示",
+      "pattern": "N/A",
+      "question": "会议中提到的“主人的工具和房子”隐喻具体指什么？",
+      "gold_answer": "会议中提到的“主人的工具和房子”隐喻指的是，当前用于表达平权要求的工具实际上是为男性和西方主导地位提供正当性的工具，这些工具构成了资本主义的观念结构，而资本主义本身以不平等为动力。因此，试图用这些工具去推翻现有的不平等结构，就像试图用主人的工具去拆除主人的房子一样，是逻辑上无法实现的。",
+      "evidence_ids": [
+        2,
+        13,
+        20,
+        21,
+        25
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_513027814.json"
+    },
+    {
+      "sample_id": "emug_l2_016",
+      "level": "L2",
+      "source_file": "mug_vcsum_597364699.json",
+      "query_id": "mug_vcsum_597364699.json_L2_2",
+      "topic": "后自然时代：深圳的枢纽定位、绿色物流与多样性路径",
+      "pattern": "N/A",
+      "question": "会议中如何描述深圳在后自然时代的枢纽定位及其绿色转型路径？",
+      "gold_answer": "会议中提到深圳作为枢纽的定位，其优势在于双向辐射功能，既向内地开放，也向外界开放，形成了流动和流通的枢纽特性。关于绿色转型路径，讨论涉及如何调整物流以更环保，并强调多样性和绿色空间的重要性，提出深圳可以成为全球学习的榜样，通过提供多元选择和加强自然保护来实现这一目标。",
+      "evidence_ids": [
+        17,
+        19,
+        56
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_597364699.json"
+    },
+    {
+      "sample_id": "emug_l2_017",
+      "level": "L2",
+      "source_file": "mug_vcsum_806182175.json",
+      "query_id": "mug_vcsum_806182175.json_L2_1",
+      "topic": "AI/技术在歌手选拔与歌曲匹配、及平台协同中的应用与前景",
+      "pattern": "N/A",
+      "question": "会议中提到的技术如何应用于歌手选拔和歌曲匹配？",
+      "gold_answer": "会议中提到，技术可以通过人工智能和声学比对来匹配歌手的声音与适合的歌曲，从而提高歌曲与歌手的适配度。此外，通过数据积累和分析，技术还可以帮助判断哪些人具有成为偶像或歌手的潜力，并结合视觉算法进行综合评估。这些技术手段旨在优化选拔过程，发掘更多优秀的声音和潜力歌手。",
+      "evidence_ids": [
+        4,
+        24,
+        26,
+        28,
+        30,
+        64,
+        70
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_806182175.json"
+    },
+    {
+      "sample_id": "emug_l2_018",
+      "level": "L2",
+      "source_file": "mug_vcsum_372830494.json",
+      "query_id": "mug_vcsum_372830494.json_L2_2",
+      "topic": "穿越不确定性的原则与方法：聚焦真实需求、不纠结宏观，危机中验证与成长；辅以公益/非零和思维与长期主义（复利效应）",
+      "pattern": "N/A",
+      "question": "在面对全球不确定性时，企业应如何调整策略以实现持续发展？",
+      "gold_answer": "在全球不确定性下，企业应聚焦于解决社会的真实需求和痛点，而非过度纠结于宏观格局的变化。同时，危机时期往往是检验商业模式的关键时刻，能够解决实际需求的企业更有可能获得发展机会。此外，企业应采用公益思维，避免零和博弈，创造共赢模式，并坚持长期主义，从小事做起，利用复利效应实现可持续发展。",
+      "evidence_ids": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        38,
+        39,
+        40
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_372830494.json"
+    },
+    {
+      "sample_id": "emug_l2_019",
+      "level": "L2",
+      "source_file": "mug_vcsum_637705510.json",
+      "query_id": "mug_vcsum_637705510.json_L2_0",
+      "topic": "艺术火箭未入轨的结果与其被阐释为“大地艺术”及失控增益意义",
+      "pattern": "N/A",
+      "question": "会议中提到的火箭发射项目有哪些独特的艺术意义？",
+      "gold_answer": "会议中提到的火箭发射项目具有多重艺术意义。一方面，火箭发射失败后形成的坑被解释为一种“大地艺术”，体现了艺术与自然环境的结合；另一方面，项目中的不可控因素和失败结果为创作增添了新的意义，展示了艺术创作中如何利用局限性和意外条件来丰富作品的内涵。",
+      "evidence_ids": [
+        10,
+        20,
+        38
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_637705510.json"
+    },
+    {
+      "sample_id": "emug_l2_020",
+      "level": "L2",
+      "source_file": "mug_vcsum_214563405.json",
+      "query_id": "mug_vcsum_214563405.json_L2_1",
+      "topic": "敏捷开发的核心原则与落地做法",
+      "pattern": "N/A",
+      "question": "会议中讨论了敏捷开发需要坚持哪些核心原则？",
+      "gold_answer": "会议中提到敏捷开发的核心原则包括关注会议、决策和研发效率，特别是持续集成与持续部署（CICD）的建设，确保开发人员专注于代码编写和测试人员专注于测试案例。还强调了系统的弹性，例如快速回退和问题定位能力，以及自动化测试和上线流程。此外，避免拘泥于敏捷框架的形式主义，通过快速迭代和验证来提升团队的敏捷性也是重要的实践方法。",
+      "evidence_ids": [
+        47,
+        48,
+        49,
+        50,
+        51,
+        53
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_214563405.json"
+    },
+    {
+      "sample_id": "emug_l2_021",
+      "level": "L2",
+      "source_file": "mug_vcsum_499203584.json",
+      "query_id": "mug_vcsum_499203584.json_L2_0",
+      "topic": "学本教学的模式与理念（先学后教、互学展学、后教；两个中心转向；教学模型的灵动）",
+      "pattern": "N/A",
+      "question": "什么是学本教学模式，其核心理念和主要特点是什么？",
+      "gold_answer": "学本教学模式是一种以学生为中心的课堂教学系统变革方式，其核心理念是以学生的深度学习和素养发展为中心，强调学生在教师指导下通过自学、互学、展学和后教等方式达成学习目标。主要特点包括：促进学生的主动学习、课堂教学关系的互动，以及教学过程的灵动性。它提倡先学后教、以学定教，注重学生的学习能力培养和教师的指导作用，旨在构建一个灵活的教学模型，而非固定的教学环节。",
+      "evidence_ids": [
+        2,
+        21,
+        24,
+        29,
+        31,
+        40,
+        41
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_499203584.json"
+    },
+    {
+      "sample_id": "emug_l2_022",
+      "level": "L2",
+      "source_file": "mug_vcsum_675505279.json",
+      "query_id": "mug_vcsum_675505279.json_L2_5",
+      "topic": "沉浸式体验与VR：多感官要求与当前应用进展",
+      "pattern": "N/A",
+      "question": "会议中讨论了沉浸式体验和VR技术的哪些方面？",
+      "gold_answer": "会议中讨论了沉浸式体验和VR技术的多感官要求以及当前的应用进展。首先，提到真正的沉浸式体验需要视觉、听觉、嗅觉、触觉等多感官的协同，而不仅仅是视觉上的沉浸。其次，讨论了VR技术在ToB领域的成熟应用，如仿真培训和职业教育，这些应用能够降低成本并提高效率。",
+      "evidence_ids": [
+        10,
+        121,
+        124
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_675505279.json"
+    },
+    {
+      "sample_id": "emug_l2_023",
+      "level": "L2",
+      "source_file": "mug_vcsum_422301629.json",
+      "query_id": "mug_vcsum_422301629.json_L2_0",
+      "topic": "驾照类比下的用户需求分层与产品定位（多数学习者为个人使用、非职业化，机构应聚焦底层大众需求）",
+      "pattern": "N/A",
+      "question": "会议中提到的驾照类比是如何说明用户需求分层的？",
+      "gold_answer": "会议中通过驾照类比说明了用户需求的分层：早期驾照主要服务于职业需求，例如驾驶卡车或出租车，而随着私家车的普及，驾照逐渐满足个人生活方式的需求。类似地，心理咨询行业的学习者中，许多人是为了个人成长和生活方式的改善，而非职业化需求。因此，机构的产品设计应聚焦于满足大众的基础需求，例如构建和谐的人际关系和家庭生活，而非仅仅关注职业化培训。",
+      "evidence_ids": [
+        8,
+        13,
+        20,
+        37,
+        38,
+        39
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_422301629.json"
+    },
+    {
+      "sample_id": "emug_l2_024",
+      "level": "L2",
+      "source_file": "mug_vcsum_370373107.json",
+      "query_id": "mug_vcsum_370373107.json_L2_0",
+      "topic": "居家学习的家庭教育与学生监管（家校共育机制与具体措施）",
+      "pattern": "N/A",
+      "question": "在居家学习期间，家长和学校如何协同支持学生的学习？",
+      "gold_answer": "在居家学习期间，家长和学校通过多种方式协同支持学生的学习。家长需要融入学生的学习过程，成为学习的合作伙伴，树立榜样并关注学生的学习状态。学校则通过组织线上活动如升旗仪式、法治教育、主题阅读等，建立家庭学习社区，规划学习生活，并通过线上班会和家长会加强与家长的沟通。此外，学校还制定合理的作息安排，实施教师包联制度，为学生提供支持和鼓励。家校共育机制的建立，有助于提升居家学习的效果。",
+      "evidence_ids": [
+        21,
+        23,
+        25,
+        44,
+        45,
+        163,
+        196
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_370373107.json"
+    },
+    {
+      "sample_id": "emug_l2_025",
+      "level": "L2",
+      "source_file": "mug_vcsum_714797042.json",
+      "query_id": "mug_vcsum_714797042.json_L2_0",
+      "topic": "白皮书数据赋能下的创作选择与艺术-商业平衡",
+      "pattern": "N/A",
+      "question": "会议中提到的白皮书数据对音乐创作者有哪些启示？",
+      "gold_answer": "会议中提到，白皮书数据表明新歌曲、新风格和新音乐人的受欢迎程度较高，这为音乐创作者提供了更大的创作自由度。创作者可以根据数据判断哪些作品可能受欢迎，从而选择自己的创作方向。同时，白皮书也启发创作者在选择创作路径时保持初心，并全力以赴地追求自己的艺术目标。",
+      "evidence_ids": [
+        5,
+        15,
+        17
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_714797042.json"
+    },
+    {
+      "sample_id": "emug_l2_026",
+      "level": "L2",
+      "source_file": "mug_vcsum_201201218.json",
+      "query_id": "mug_vcsum_201201218.json_L2_1",
+      "topic": "信息化手段推动幼儿园教研与教师培训的创新实践",
+      "pattern": "N/A",
+      "question": "会议中讨论了如何利用信息化手段创新幼儿园的教研和教师培训？",
+      "gold_answer": "会议中提到，幼儿园在疫情期间通过信息化手段开展了创新性的教研活动。例如，利用钉钉、微信公众号等平台进行线上教学和教研，组织教师参与信息技术培训，提升其教学能力和信息化素养。此外，还通过云端教研和五结合五提升体系，优化了教研内容和教学质量，形成了系统化的实践路径。",
+      "evidence_ids": [
+        7,
+        9,
+        11,
+        18,
+        19,
+        20,
+        26,
+        28,
+        29,
+        33,
+        34
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_201201218.json"
+    },
+    {
+      "sample_id": "emug_l2_027",
+      "level": "L2",
+      "source_file": "mug_vcsum_336812074.json",
+      "query_id": "mug_vcsum_336812074.json_L2_0",
+      "topic": "卓明方舟的互联网救灾发展与信息降维、传递方法的优势",
+      "pattern": "N/A",
+      "question": "卓明方舟在互联网救灾方面有哪些独特的优势和方法？",
+      "gold_answer": "卓明方舟在互联网救灾方面的独特优势和方法包括：选择互联网救灾路径以获取信息红利，通过QQ、微博、微信等工具解决信息不对称问题；对灾害机理有深度理解，强调证据、数据、决策的转化链；在一线采用信息降维和低门槛传递的方法，如使用简单文字和带宽友好的信息传递方式；以及对信息需求和时机的精准把握，确保在合适的时间提供所需的信息。",
+      "evidence_ids": [
+        133,
+        134,
+        135,
+        138,
+        139,
+        140,
+        141,
+        174,
+        175,
+        177,
+        178,
+        181,
+        182,
+        184,
+        186,
+        187
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_336812074.json"
+    },
+    {
+      "sample_id": "emug_l2_028",
+      "level": "L2",
+      "source_file": "mug_vcsum_838375651.json",
+      "query_id": "mug_vcsum_838375651.json_L2_8",
+      "topic": "CRISPR在新冠疫苗抗原设计与优化中的应用",
+      "pattern": "N/A",
+      "question": "会议中提到了CRISPR技术在新冠疫苗设计中的哪些具体应用？",
+      "gold_answer": "会议中提到CRISPR技术在新冠疫苗设计中的具体应用包括：通过定点修改毒性基因以降低毒性同时保留免疫原性；在多种不同亚型的RBD组合时，利用CRISPR进行序列重排优化以减少免疫风暴因子的产生。这些应用旨在提高疫苗的安全性和有效性。",
+      "evidence_ids": [
+        25,
+        104,
+        105
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_838375651.json"
+    },
+    {
+      "sample_id": "emug_l2_029",
+      "level": "L2",
+      "source_file": "mug_vcsum_205336505.json",
+      "query_id": "mug_vcsum_205336505.json_L2_1",
+      "topic": "深圳基础教育信息学科创现状问题与改进路径（面不够广、深度不足、与广州差距、家长应试观念、校方重视不足；解决方案：合作、课程普及、赛事与平台推动）",
+      "pattern": "N/A",
+      "question": "深圳基础教育在信息学科创方面存在哪些问题？",
+      "gold_answer": "深圳基础教育在信息学科创方面存在以下问题：参与面不够广，许多学校仅关注少部分学生；教育深度不足，尽管有比赛普及，但未达到深度学习的要求；与广州、中山等地相比，学校重视程度和教练体系积累不足；家长普遍存在应试教育导向，影响学生参与科创活动；学校缺乏引导和激励机制，导致整体竞争力较弱。",
+      "evidence_ids": [
+        15,
+        16,
+        17,
+        18,
+        21,
+        22,
+        25,
+        26,
+        27,
+        72
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_205336505.json"
+    },
+    {
+      "sample_id": "emug_l2_030",
+      "level": "L2",
+      "source_file": "mug_vcsum_843515522.json",
+      "query_id": "mug_vcsum_843515522.json_L2_4",
+      "topic": "会议时间安排与“拖堂”前后呼应",
+      "pattern": "N/A",
+      "question": "会议中提到了什么关于时间安排和拖堂的内容？",
+      "gold_answer": "会议开始时主持人将原定的50分钟环节压缩为25分钟，并制定了具体的节奏安排。接近尾声时，主持人承认会议超时，持续了四个半小时以上。闭幕时，主持人以幽默的方式总结，表示以后不再拖堂，前后呼应了会议时间管理和拖堂现象。",
+      "evidence_ids": [
+        1,
+        46,
+        48
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_843515522.json"
+    },
+    {
+      "sample_id": "emug_l2_031",
+      "level": "L2",
+      "source_file": "mug_vcsum_92382517.json",
+      "query_id": "mug_vcsum_92382517.json_L2_0",
+      "topic": "企业为残障人士提供适岗就业的倡议与可操作安排",
+      "pattern": "N/A",
+      "question": "会议中提到企业如何为残障人士提供就业机会？",
+      "gold_answer": "会议中提到企业通过优先安排适合残障人士的岗位来提供就业机会。企业内部早有明文要求优先安置残障人士在适岗岗位上，并且每年培训两到三千人以帮助他们获得技能并找到工作。此外，企业家呼吁同行拿出更多岗位，并提出灵活用工方式，例如居家或合适场所的安排，以适应残障人士的特殊需求。",
+      "evidence_ids": [
+        3,
+        6,
+        34
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_92382517.json"
+    },
+    {
+      "sample_id": "emug_l2_032",
+      "level": "L2",
+      "source_file": "mug_vcsum_926329201.json",
+      "query_id": "mug_vcsum_926329201.json_L2_2",
+      "topic": "以人为本的城市交通愿景与目标",
+      "pattern": "N/A",
+      "question": "会议中对未来城市交通的愿景是什么？",
+      "gold_answer": "会议中提出了未来城市交通的愿景是以人为本，通过人工智能等技术赋能车路层，提升交通出行的效率和安全，从而实现更加安全、便捷、舒适和绿色高效的城市空间。",
+      "evidence_ids": [
+        1,
+        30,
+        32
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_926329201.json"
+    },
+    {
+      "sample_id": "emug_l2_033",
+      "level": "L2",
+      "source_file": "mug_vcsum_214951593.json",
+      "query_id": "mug_vcsum_214951593.json_L2_4",
+      "topic": "结构化产品在高净值财富管理中的定位与作用（占比与市场连接）",
+      "pattern": "N/A",
+      "question": "结构化产品在高净值财富管理中起到了哪些作用？",
+      "gold_answer": "结构化产品在高净值财富管理中起到了分散风险、提供另类投资选择、实现定制化投资的作用。此外，它还能够连接场内和场外市场，稳定市场波动性，并支持资本市场的发展。",
+      "evidence_ids": [
+        19,
+        99,
+        100,
+        101
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_214951593.json"
+    },
+    {
+      "sample_id": "emug_l2_034",
+      "level": "L2",
+      "source_file": "mug_vcsum_248604241.json",
+      "query_id": "mug_vcsum_248604241.json_L2_3",
+      "topic": "VR/AR发展的基础设施与算力生态支撑",
+      "pattern": "N/A",
+      "question": "会议中提到了哪些因素对VR/AR技术的发展具有支撑作用？",
+      "gold_answer": "会议中提到，VR/AR技术的发展受到互联网基础设施、5G技术的支持，同时地方政府投入建设超算中心和人工智能计算中心也为其提供了算力支持。此外，国家重点实验室的建立以及算法型平台（如抖音、快手）与传媒的结合，体现了技术与算力生态的支撑与融合，这些因素共同推动了VR/AR技术的发展。",
+      "evidence_ids": [
+        7,
+        38,
+        39
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_248604241.json"
+    },
+    {
+      "sample_id": "emug_l2_035",
+      "level": "L2",
+      "source_file": "mug_vcsum_252498587.json",
+      "query_id": "mug_vcsum_252498587.json_L2_0",
+      "topic": "理解中介/媒介需先澄清所处理论语境，并举例不同语境（社会理论、技术哲学、政治经济/基础设施）",
+      "pattern": "N/A",
+      "question": "在会议中，关于理解媒介或中介的概念，提到了哪些理论语境？",
+      "gold_answer": "会议中提到理解媒介或中介的概念需要回归其生成的理论语境，并列举了几种不同的理论语境，包括社会理论、技术哲学（如柏林学派和麦克卢汉的观点）、以及政治经济学和基础设施研究的视角。",
+      "evidence_ids": [
+        4,
+        6,
+        8,
+        10
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_252498587.json"
+    },
+    {
+      "sample_id": "emug_l2_036",
+      "level": "L2",
+      "source_file": "mug_vcsum_295821858.json",
+      "query_id": "mug_vcsum_295821858.json_L2_0",
+      "topic": "人工合成淀粉的经济性与走向实用的能源路径",
+      "pattern": "N/A",
+      "question": "会议中讨论了人工合成淀粉的经济性问题及其未来发展方向吗？",
+      "gold_answer": "是的，会议中讨论了人工合成淀粉目前的经济性问题，指出其成本较高且尚无经济价值。同时，提出了未来可能的降本路径，包括利用本地消纳光伏电和可控核聚变供能。此外，还提到在外太空场景下成本约束减弱的潜在应用及其循环供给模式的可能性。",
+      "evidence_ids": [
+        22,
+        25,
+        27,
+        31
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_295821858.json"
+    },
+    {
+      "sample_id": "emug_l2_037",
+      "level": "L2",
+      "source_file": "mug_vcsum_328703719.json",
+      "query_id": "mug_vcsum_328703719.json_L2_1",
+      "topic": "“先造车后超车”：技术为本，互联网赋能为路",
+      "pattern": "N/A",
+      "question": "会议中提到的“车与路”的比喻具体指代了什么？",
+      "gold_answer": "会议中使用“车与路”的比喻来说明技术与互联网的关系。其中，“车”指代产品或技术，强调需要先做好技术研发和产品制造；而“路”则象征互联网及其赋能作用，通过提供平台和支持，促进技术和产品的多样化发展。",
+      "evidence_ids": [
+        18,
+        22,
+        26,
+        38
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_328703719.json"
+    },
+    {
+      "sample_id": "emug_l2_038",
+      "level": "L2",
+      "source_file": "mug_vcsum_420385687.json",
+      "query_id": "mug_vcsum_420385687.json_L2_2",
+      "topic": "数字技术的效率与公平双重评价与阶段性关注",
+      "pattern": "N/A",
+      "question": "会议中如何评价数字技术的发展及其对社会的影响？",
+      "gold_answer": "会议中提到，数字技术的发展具有两面性。一方面，它提升了经济效率，尤其是在技术发展的早期阶段；另一方面，它可能加剧社会不公平，形成数字鸿沟。因此，除了关注效率外，还需在技术成熟阶段注重公平与包容。此外，社会效率无法完全通过市场竞争实现，这需要政府和立法层面的约束来平衡企业利益与社会利益。",
+      "evidence_ids": [
+        32,
+        35,
+        56
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_420385687.json"
+    },
+    {
+      "sample_id": "emug_l2_039",
+      "level": "L2",
+      "source_file": "mug_vcsum_456490571.json",
+      "query_id": "mug_vcsum_456490571.json_L2_3",
+      "topic": "生态技术在生态校园中的支撑作用与应用实践",
+      "pattern": "N/A",
+      "question": "会议中是如何描述生态校园建设中技术的应用和作用的？",
+      "gold_answer": "会议中提到，生态校园的建设需要结合智能技术和信息技术，推动教育教学效率的提升。具体实践包括利用VR、AR等技术优化学习方式，采用OA管理系统和电子班牌等信息化手段提高管理效率，以及建设多功能教室以适应多样化的教学需求。",
+      "evidence_ids": [
+        27,
+        71,
+        78,
+        84
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_456490571.json"
+    },
+    {
+      "sample_id": "emug_l2_040",
+      "level": "L2",
+      "source_file": "mug_vcsum_467198325.json",
+      "query_id": "mug_vcsum_467198325.json_L2_3",
+      "topic": "共同富裕与第三次分配背景下公益赋能未来社区的意义与定位",
+      "pattern": "N/A",
+      "question": "会议中讨论了公益慈善在未来社区建设中的作用是什么？",
+      "gold_answer": "会议中提到，公益慈善在未来社区建设中具有独特作用，特别是在共同富裕示范区的背景下，通过第三次分配的形式，公益慈善和志愿服务能够有效帮助社区中的困难群体，提升人民群众的幸福感和获得感，满足对美好生活的追求。",
+      "evidence_ids": [
+        6,
+        9,
+        15,
+        35
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_467198325.json"
+    },
+    {
+      "sample_id": "emug_l2_041",
+      "level": "L2",
+      "source_file": "mug_vcsum_468483664.json",
+      "query_id": "mug_vcsum_468483664.json_L2_4",
+      "topic": "以患者为中心的价值医疗与优质服务在高质量发展中的核心地位",
+      "pattern": "N/A",
+      "question": "会议中如何定义医院的高质量发展？",
+      "gold_answer": "会议中定义医院的高质量发展为以患者为中心的价值医疗和服务体验的提升。具体包括提供高质量的医疗服务以改善患者体验、优化服务环境和流程以保障患者感受，以及通过绩效考评体系、等级评审和医保支付制度改革等抓手促进医院管理和服务质量的提升。",
+      "evidence_ids": [
+        14,
+        61,
+        71,
+        72
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_468483664.json"
+    },
+    {
+      "sample_id": "emug_l2_042",
+      "level": "L2",
+      "source_file": "mug_vcsum_498149088.json",
+      "query_id": "mug_vcsum_498149088.json_L2_2",
+      "topic": "家校协同强化与学校—家庭教育边界的消融及技术赋能",
+      "pattern": "N/A",
+      "question": "会议中提到的家校协作在疫情期间发生了哪些变化？",
+      "gold_answer": "会议中提到，疫情期间家校协作关系得到了前所未有的强化，学校与家庭的联系更加紧密。学校调整了家校合作的方式，为未来的协作提供了方向和路径。此外，家庭教育与学校教育的边界逐渐消融，形成了一种新的教育格局，技术手段也被广泛应用于支持家校共育和教学管理。",
+      "evidence_ids": [
+        43,
+        44,
+        45,
+        90
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_498149088.json"
+    },
+    {
+      "sample_id": "emug_l2_043",
+      "level": "L2",
+      "source_file": "mug_vcsum_503754314.json",
+      "query_id": "mug_vcsum_503754314.json_L2_0",
+      "topic": "主讲人由咨询转型至售前的动因、时点与岗位内容",
+      "pattern": "N/A",
+      "question": "会议中提到的职业转型的背景是什么？",
+      "gold_answer": "会议中提到的职业转型背景包括疫情爆发对实体行业和咨询行业的冲击，导致收入下降甚至团队解散。此外，主讲人提到个人年龄和家庭经济压力也是促使其转型的重要因素。",
+      "evidence_ids": [
+        2,
+        4,
+        5,
+        27
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_503754314.json"
+    },
+    {
+      "sample_id": "emug_l2_044",
+      "level": "L2",
+      "source_file": "mug_vcsum_507457818.json",
+      "query_id": "mug_vcsum_507457818.json_L2_3",
+      "topic": "资源保障与贵金属思路：可回收、技术增效与时间价值",
+      "pattern": "N/A",
+      "question": "会议中如何看待氢能行业资源问题及其解决思路？",
+      "gold_answer": "会议中提到氢能行业的资源问题并不需要过度担忧，资源通常在初期被认为是问题，但最终会被证明不是问题。解决资源问题的思路包括三个方面：一是通过技术进步提升有限资源的效益；二是利用贵金属的可回收性实现循环使用；三是关注贵金属的时间价值，因为其物质在使用过程中几乎不灭。此外，会议还强调资源的丰富性，并建议从上述三个方向考虑如何在阶段性内保证资源的安全性和稳定性。",
+      "evidence_ids": [
+        10,
+        20
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_507457818.json"
+    },
+    {
+      "sample_id": "emug_l2_045",
+      "level": "L2",
+      "source_file": "mug_vcsum_586218090.json",
+      "query_id": "mug_vcsum_586218090.json_L2_0",
+      "topic": "2021年欧洲杯举办前景与中国区转播/招商态势",
+      "pattern": "N/A",
+      "question": "会议中讨论了2021年欧洲杯的举办前景和相关商业化情况吗？",
+      "gold_answer": "是的，会议中讨论了2021年欧洲杯的举办前景和相关商业化情况。与会者认为欧洲杯一定会举办，可能会采取空场或集中在少数城市举办的形式。此外，会议还提到中国区的转播格局发生了变化，新媒体获得了转播权益，并且今年的广告招商情况优于往年，显示出企业对体育赛事传播和美誉度的重视。",
+      "evidence_ids": [
+        3,
+        17,
+        32,
+        33
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_586218090.json"
+    },
+    {
+      "sample_id": "emug_l2_046",
+      "level": "L2",
+      "source_file": "mug_vcsum_630370395.json",
+      "query_id": "mug_vcsum_630370395.json_L2_2",
+      "topic": "抱团协作与资源整合，助力中国原创品牌走向更大平台与国际",
+      "pattern": "N/A",
+      "question": "会议中提到的关于中国原创品牌发展的主要建议是什么？",
+      "gold_answer": "会议中提出了通过抱团协作与资源整合来助力中国原创品牌发展的建议。具体包括在展会期间开展设计师、买手与原创展示的落地活动；通过小众品牌间的紧密合作实现资源共享；整合协会、平台与院校资源；以及借助商业平台为设计师提供更多展示与销售机会，推动中国原创品牌走向国际市场。",
+      "evidence_ids": [
+        29,
+        46,
+        48,
+        51
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_630370395.json"
+    },
+    {
+      "sample_id": "emug_l2_047",
+      "level": "L2",
+      "source_file": "mug_vcsum_63937939.json",
+      "query_id": "mug_vcsum_63937939.json_L2_0",
+      "topic": "经营哲学与经营实学是一体，并在经营实践中落地的方法链条",
+      "pattern": "N/A",
+      "question": "会议中讨论了经营哲学与经营实学的关系以及如何在实践中落地吗？",
+      "gold_answer": "是的，会议中讨论了经营哲学与经营实学的关系，并提出了它们是一体的观点。哲学的学习和实践应贯穿于经营活动中，通过分享、反省以及工作目标、策略和方法的共有来实现哲学的渗透和落实，从而促进企业的长期发展和员工的幸福感与人格提升。",
+      "evidence_ids": [
+        3,
+        18,
+        20,
+        58
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_63937939.json"
+    },
+    {
+      "sample_id": "emug_l2_048",
+      "level": "L2",
+      "source_file": "mug_vcsum_679937036.json",
+      "query_id": "mug_vcsum_679937036.json_L2_0",
+      "topic": "构建积极老龄化与年龄友好型社会的理念与路径",
+      "pattern": "N/A",
+      "question": "会议中提到了如何构建一个年龄友好型社会吗？",
+      "gold_answer": "是的，会议中提到构建年龄友好型社会的理念和路径。首先提出了不分年龄、人人共享的社会理念，强调尊老爱老孝老，同时让年轻人发挥才智。随后讨论了少子化和老龄化背景下的积极老龄化观念，并提出解决性别平等、教育和养老问题的必要性。最后提到通过技术和家庭/社会赋能，消除老年人在社交和技术上的障碍，以实现年龄友好型社会的目标。",
+      "evidence_ids": [
+        3,
+        12,
+        54
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_679937036.json"
+    },
+    {
+      "sample_id": "emug_l2_049",
+      "level": "L2",
+      "source_file": "mug_vcsum_765029384.json",
+      "query_id": "mug_vcsum_765029384.json_L2_0",
+      "topic": "线上会议与PPT驱动的沟通方式：疫情下远程会、注重细节与专业呈现",
+      "pattern": "N/A",
+      "question": "在疫情期间，跨境交流是如何适应新环境并提高效率的？",
+      "gold_answer": "在疫情期间，由于旅行限制，跨境交流转为线上形式，主要通过视频会议和PPT进行沟通。这种方式提高了效率，因为无需面对面见面即可完成交流。此外，注重细节和专业准备，如通过PPT展示数据和策略，能够有效打动合作方，展现对项目的理解和执行能力。",
+      "evidence_ids": [
+        4,
+        11,
+        31,
+        35
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_765029384.json"
+    },
+    {
+      "sample_id": "emug_l2_050",
+      "level": "L2",
+      "source_file": "mug_vcsum_798179277.json",
+      "query_id": "mug_vcsum_798179277.json_L2_1",
+      "topic": "面向大中华客户的产品线扩充（美股/港股/大宗商品）",
+      "pattern": "N/A",
+      "question": "会议中提到哪些针对大中华地区客户的产品扩展计划？",
+      "gold_answer": "会议中提到针对大中华地区客户的产品扩展计划包括推出适合华人用户习惯的交易平台，增加美股和港股个股交易，提供大宗商品交易渠道，以及通过线上交易指导课堂和交易大赛增强客户粘性。此外，还计划推出基于MT5交易系统的多元化资产交易服务，如区块链和期货等产品。",
+      "evidence_ids": [
+        12,
+        27,
+        62,
+        74
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_798179277.json"
+    }
+  ]
+}

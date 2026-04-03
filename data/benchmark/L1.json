@@ -1,0 +1,764 @@
+{
+  "dataset": "EMUG-Bench",
+  "subset": "vcsum_sampled_release",
+  "level": "L1",
+  "sample_count": 50,
+  "samples": [
+    {
+      "sample_id": "emug_l1_001",
+      "level": "L1",
+      "source_file": "mug_vcsum_249011272.json",
+      "query_id": "mug_vcsum_249011272.json_L1_1",
+      "topic": "从单兵突进到集团化的组织与方法路径",
+      "pattern": "N/A",
+      "question": "会议中提到企业在共享服务中心建设中面临的主要问题是什么？",
+      "gold_answer": "会议中提到企业在共享服务中心建设中面临的主要问题是“单兵突进”，即缺乏集团化和国际化的组织路径。这种问题导致企业在数字化转型中缺乏标杆化和示范化的建设，影响了共享服务中心的效能和支持企业国际化发展的能力。",
+      "evidence_ids": [
+        9,
+        15
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_249011272.json"
+    },
+    {
+      "sample_id": "emug_l1_002",
+      "level": "L1",
+      "source_file": "mug_vcsum_294403102.json",
+      "query_id": "mug_vcsum_294403102.json_L1_0",
+      "topic": "论坛讨论方式从发散到聚焦大会主题",
+      "pattern": "A",
+      "question": "关于论坛讨论方式的结论是什么？",
+      "gold_answer": "论坛将遵循大会主席的引导，紧扣“心理学新教育”与“人的全面发展”主题开展讨论。理由：主席持续将发言拉回主轴，嘉宾已明确表示顺从这一引导。",
+      "evidence_ids": [
+        28
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_294403102.json"
+    },
+    {
+      "sample_id": "emug_l1_003",
+      "level": "L1",
+      "source_file": "mug_vcsum_26230473.json",
+      "query_id": "mug_vcsum_26230473.json_L1_1",
+      "topic": "公司战略聚焦智能客服定制与训练市场",
+      "pattern": "B",
+      "question": "关于公司战略聚焦方向的结论是什么？",
+      "gold_answer": "公司将聚焦“场景化的智能客服定制”，并把“基于智能客服的培训与训练市场”作为主要发力方向。理由：他们判断该领域需求广阔，智能客服并非一次性产品而是需持续训练的系统，存在稳定的定制与训练服务机会。",
+      "evidence_ids": [
+        17,
+        19
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_26230473.json"
+    },
+    {
+      "sample_id": "emug_l1_004",
+      "level": "L1",
+      "source_file": "mug_vcsum_208364976.json",
+      "query_id": "mug_vcsum_208364976.json_L1_0",
+      "topic": "产品变革与供应链创新管理模式补充讨论被时间理由终止",
+      "pattern": "C",
+      "question": "关于产品变革与供应链创新管理模式的补充讨论的结论是什么？",
+      "gold_answer": "最终决定是：不再展开关于产品变革与供应链创新管理模式的补充讨论，因时间关系主持人结束该话题并转入第二组圆桌环节。",
+      "evidence_ids": [
+        44,
+        48
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_208364976.json"
+    },
+    {
+      "sample_id": "emug_l1_005",
+      "level": "L1",
+      "source_file": "mug_vcsum_467198325.json",
+      "query_id": "mug_vcsum_467198325.json_L1_0",
+      "topic": "公益作为社区服务第三支柱，弥补政府与市场不足",
+      "pattern": "N/A",
+      "question": "会议中提到社区服务的组成部分有哪些？",
+      "gold_answer": "社区服务由公共服务、公益服务和商业服务三类构成。公益服务在很大程度上弥补了政府和市场难以覆盖的需求，是不可忽视的一部分。",
+      "evidence_ids": [
+        3,
+        7
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_467198325.json"
+    },
+    {
+      "sample_id": "emug_l1_006",
+      "level": "L1",
+      "source_file": "mug_vcsum_373659772.json",
+      "query_id": "mug_vcsum_373659772.json_L1_0",
+      "topic": "企业对直播投入的策略从‘短期尝试’到‘长期加注’的反转",
+      "pattern": "A",
+      "question": "关于企业对线上直播/营销投入的结论是什么？",
+      "gold_answer": "结论是：线上直播与线上营销被确认为长期增长方向，企业将持续并加大投入。理由：后续月份呈现连续回暖与月度增长，表明其非短期现象，因此未来（尤其明年）会进一步加码。",
+      "evidence_ids": [
+        29
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_373659772.json"
+    },
+    {
+      "sample_id": "emug_l1_007",
+      "level": "L1",
+      "source_file": "mug_vcsum_328519841.json",
+      "query_id": "mug_vcsum_328519841.json_L1_0",
+      "topic": "论坛主题与时间的核心确定",
+      "pattern": "B",
+      "question": "关于本期圆桌论坛的主题与时间安排的结论是什么？",
+      "gold_answer": "论坛确定于今天下午2:30至4:30举行，围绕“新时代教师素养与能力提升”主题开展讨论；这是主持人明确宣布的核心安排。",
+      "evidence_ids": [
+        1,
+        4
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_328519841.json"
+    },
+    {
+      "sample_id": "emug_l1_008",
+      "level": "L1",
+      "source_file": "mug_vcsum_678314247.json",
+      "query_id": "mug_vcsum_678314247.json_L1_3",
+      "topic": "是否以特高压技术对他国实施“卡脖子”",
+      "pattern": "C",
+      "question": "关于是否以特高压技术对他国实施“卡脖子”的结论是什么？",
+      "gold_answer": "不会。结论是中国不会把特高压技术作为“卡脖子”的工具，而是以负责任大国的定位，用其造福和服务全球能源互联与清洁能源输送；对巴西等已输出全套技术与装备的实践也印证了这一取向。",
+      "evidence_ids": [
+        49,
+        50
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_678314247.json"
+    },
+    {
+      "sample_id": "emug_l1_009",
+      "level": "L1",
+      "source_file": "mug_vcsum_637705510.json",
+      "query_id": "mug_vcsum_637705510.json_L1_0",
+      "topic": "艺术火箭发射的三个核心关键词（欲望、危机、未知）",
+      "pattern": "N/A",
+      "question": "会议中提到的艺术火箭发射的核心关键词是什么？",
+      "gold_answer": "会议中提到艺术火箭发射的核心关键词是欲望、危机和未知。这些关键词反映了对人类思考的本质性关注，并以一种抽象且独特的艺术语言呈现。",
+      "evidence_ids": [
+        7,
+        41
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_637705510.json"
+    },
+    {
+      "sample_id": "emug_l1_010",
+      "level": "L1",
+      "source_file": "mug_vcsum_376465411.json",
+      "query_id": "mug_vcsum_376465411.json_L1_0",
+      "topic": "网络咨询的执行地点（在家vs办公场所）",
+      "pattern": "A",
+      "question": "关于网络咨询的执行地点的结论是什么？",
+      "gold_answer": "网络咨询应在咨询师的办公场所进行；这样更正式、更投入，有助于保障专业性与来访者的福祉。",
+      "evidence_ids": [
+        7
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_376465411.json"
+    },
+    {
+      "sample_id": "emug_l1_011",
+      "level": "L1",
+      "source_file": "mug_vcsum_331286888.json",
+      "query_id": "mug_vcsum_331286888.json_L1_1",
+      "topic": "数字人文与新文科的关系与定位结论",
+      "pattern": "B",
+      "question": "关于数字人文与新文科建设之间关系的结论是什么？",
+      "gold_answer": "两者不是等同关系，数字人文是新文科建设的重要抓手之一。简要理由：新文科的覆盖面更广、内涵更深、抓手更多，数字人文是在多种抓手中的关键一项。",
+      "evidence_ids": [
+        17,
+        18
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_331286888.json"
+    },
+    {
+      "sample_id": "emug_l1_012",
+      "level": "L1",
+      "source_file": "mug_vcsum_77584426.json",
+      "query_id": "mug_vcsum_77584426.json_L1_0",
+      "topic": "拒绝给出个股推荐（Mario）",
+      "pattern": "C",
+      "question": "关于个股推荐的结论是什么？",
+      "gold_answer": "最终决定是不提供任何个股推荐，转而强调适度分散投资；理由是没有任何单一公司被认为能让人放心持有几十年。",
+      "evidence_ids": [
+        90,
+        91
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_77584426.json"
+    },
+    {
+      "sample_id": "emug_l1_013",
+      "level": "L1",
+      "source_file": "mug_vcsum_719277153.json",
+      "query_id": "mug_vcsum_719277153.json_L1_1",
+      "topic": "网信办的引导：与主流媒体合作、平台推荐与专区、政务协同提供正向素材宣传政策",
+      "pattern": "N/A",
+      "question": "会议中提到网信办采取了哪些具体举措来引导宣传政策？",
+      "gold_answer": "会议中提到网信办采取了以下具体举措来引导宣传政策：一是推荐多个媒体平台播放内容并开设专区；二是相关职能部门积极合作，通过短视频宣传政策；三是推动与主流媒体合作，推广成功经验，肯定其独特魅力和作用。这些措施旨在提供正向素材，增强宣传效果。",
+      "evidence_ids": [
+        8,
+        13
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_719277153.json"
+    },
+    {
+      "sample_id": "emug_l1_014",
+      "level": "L1",
+      "source_file": "mug_vcsum_458050968.json",
+      "query_id": "mug_vcsum_458050968.json_L1_0",
+      "topic": "医药内部配置从“重械轻药”转向“更看创新药”",
+      "pattern": "A",
+      "question": "关于医药内部配置取向的结论是什么？",
+      "gold_answer": "最终决定是在当前阶段将医药内部配置从此前的“重械轻药”调整为边际上更多配置创新药；基于统一的质地与估值框架并结合产业趋势判断，当前环境下创新药成为更应侧重的方向。",
+      "evidence_ids": [
+        26
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_458050968.json"
+    },
+    {
+      "sample_id": "emug_l1_015",
+      "level": "L1",
+      "source_file": "mug_vcsum_498149088.json",
+      "query_id": "mug_vcsum_498149088.json_L1_1",
+      "topic": "以数据驱动的学校决策准则",
+      "pattern": "B",
+      "question": "关于后疫情时代学校决策方式的结论是什么？",
+      "gold_answer": "学校在后疫情时代将实行数据驱动的决策，以各项精准的业务数据作为主要依据开展治理与教学管理。理由：会议明确将“基于精准业务数据”确立为核心决策准则。",
+      "evidence_ids": [
+        28,
+        29
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_498149088.json"
+    },
+    {
+      "sample_id": "emug_l1_016",
+      "level": "L1",
+      "source_file": "mug_vcsum_894099276.json",
+      "query_id": "mug_vcsum_894099276.json_L1_2",
+      "topic": "COP26第六条对国内碳市场的短期影响的推迟与观望",
+      "pattern": "C",
+      "question": "关于COP26第六条对国内碳市场短期影响的结论是什么？",
+      "gold_answer": "结论：短期内对国内碳市场不会产生明显影响。简要说明：国际新机制仍停留在框架层面、缺少操作性规则；预计最快两年后落地并优先影响自愿减排市场，随后才可能通过抵消机制间接传导至强制市场，具体取决于规则落地与谈判进展。",
+      "evidence_ids": [
+        39,
+        42
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_894099276.json"
+    },
+    {
+      "sample_id": "emug_l1_017",
+      "level": "L1",
+      "source_file": "mug_vcsum_883982871.json",
+      "query_id": "mug_vcsum_883982871.json_L1_0",
+      "topic": "项目资金与合作伙伴来源（UNDP/GEF与欧盟）",
+      "pattern": "N/A",
+      "question": "会议中提到的项目资金和合作伙伴来源有哪些？",
+      "gold_answer": "会议中提到的项目资金来源包括由联合国开发计划署管理的全球环境基金小额赠款计划（支持全国范围行动）以及来自欧盟的资金（资助云南尤其是昆明地区的高校）。合作伙伴包括一个名为“货马岸人与人，国际运动联合会”的国际组织，该组织在昆明市牵头开展相关活动。",
+      "evidence_ids": [
+        3,
+        32
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_883982871.json"
+    },
+    {
+      "sample_id": "emug_l1_018",
+      "level": "L1",
+      "source_file": "mug_vcsum_513027814.json",
+      "query_id": "mug_vcsum_513027814.json_L1_1",
+      "topic": "哲学的起点：从“惊奇”到“质疑”",
+      "pattern": "A",
+      "question": "关于哲学起点的结论是什么？",
+      "gold_answer": "结论是“哲学始于质疑”。理由：发言人强调把任何立场当作不证自明是反哲学，并主张以对普遍意见（doxa）的质疑开启哲学思考。",
+      "evidence_ids": [
+        1
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_513027814.json"
+    },
+    {
+      "sample_id": "emug_l1_019",
+      "level": "L1",
+      "source_file": "mug_vcsum_509033656.json",
+      "query_id": "mug_vcsum_509033656.json_L1_0",
+      "topic": "确立“活动育人”为核心方法（噪音过滤，模式B）",
+      "pattern": "B",
+      "question": "关于学校德育/品格养成的核心实施方法的结论是什么？",
+      "gold_answer": "确立“活动育人”为核心方法：通过组织学生参与实际活动、体验与感悟来提升品格，而非依赖口号或说教；因为活动参与被明确认为是最有效的手段。",
+      "evidence_ids": [
+        31,
+        33
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_509033656.json"
+    },
+    {
+      "sample_id": "emug_l1_020",
+      "level": "L1",
+      "source_file": "mug_vcsum_977164211.json",
+      "query_id": "mug_vcsum_977164211.json_L1_0",
+      "topic": "是否当场为元宇宙下定义",
+      "pattern": "C",
+      "question": "关于是否当场为“元宇宙”给出明确定义的结论是什么？",
+      "gold_answer": "不当场给出明确定义；将其暂定位为一种面向未来的生活形态，并将重心放在以Web3.0、分布式与边缘计算等为代表的基础设施建设上，认为定义应由生态共同演进后再自然形成。",
+      "evidence_ids": [
+        9,
+        21
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_977164211.json"
+    },
+    {
+      "sample_id": "emug_l1_021",
+      "level": "L1",
+      "source_file": "mug_vcsum_330968913.json",
+      "query_id": "mug_vcsum_330968913.json_L1_0",
+      "topic": "农村基础设施与公共服务短板的投资与可持续管护机制",
+      "pattern": "N/A",
+      "question": "会议中提到农村基础设施建设和公共服务有哪些需要改进的方面？",
+      "gold_answer": "会议中提到，农村基础设施建设和公共服务需要改进的方面包括医疗卫生、教育、生态环境建设，以及垃圾环境治理等领域存在较大差距，需要进行大量投资。此外，还提到基础设施建设后期的维护问题，建议通过发动村民参与日常维护来提升可持续性。",
+      "evidence_ids": [
+        5,
+        42,
+        46
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_330968913.json"
+    },
+    {
+      "sample_id": "emug_l1_022",
+      "level": "L1",
+      "source_file": "mug_vcsum_550472770.json",
+      "query_id": "mug_vcsum_550472770.json_L1_2",
+      "topic": "主持人安排的即时决策反转",
+      "pattern": "A",
+      "question": "关于主持人安排的结论是什么？",
+      "gold_answer": "最终决定是：原本只需做演讲的该发言者被临时改为担任圆桌主持。理由：原定主持人无法到场，现场即时决定由其顶替主持。",
+      "evidence_ids": [
+        27
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_550472770.json"
+    },
+    {
+      "sample_id": "emug_l1_023",
+      "level": "L1",
+      "source_file": "mug_vcsum_586218090.json",
+      "query_id": "mug_vcsum_586218090.json_L1_1",
+      "topic": "2021中超赛制安排（第一阶段确定赛会制）",
+      "pattern": "B",
+      "question": "关于2021年中超联赛第一阶段赛制的结论是什么？",
+      "gold_answer": "2021年中超联赛第一阶段将“依然采用封闭赛会制”，并以两个赛区开启；后续阶段是否改回主客场将视疫情变化而定。理由：会议发言明确给出第一阶段的确定性安排，其他细节为条件性预案。",
+      "evidence_ids": [
+        4,
+        5
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_586218090.json"
+    },
+    {
+      "sample_id": "emug_l1_024",
+      "level": "L1",
+      "source_file": "mug_vcsum_764081134.json",
+      "query_id": "mug_vcsum_764081134.json_L1_0",
+      "topic": "主管部门归属的探索与委婉推托",
+      "pattern": "C",
+      "question": "关于心理咨询师职业主管部门归属的结论是什么？",
+      "gold_answer": "最终未能确定主管部门，相关提议被实际搁置；心理咨询师当时没有明确的主管部门。简要原因：相关部委以职能不匹配和机构设置缺失为由未接手，形成隐性拒绝。",
+      "evidence_ids": [
+        69,
+        71,
+        72
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_764081134.json"
+    },
+    {
+      "sample_id": "emug_l1_025",
+      "level": "L1",
+      "source_file": "mug_vcsum_44524064.json",
+      "query_id": "mug_vcsum_44524064.json_L1_1",
+      "topic": "体验与场景驱动的消费/空间选择偏好",
+      "pattern": "N/A",
+      "question": "会议中提到的年轻人对办公场所的偏好有哪些变化？",
+      "gold_answer": "会议中提到，年轻人对办公场所的偏好发生了变化。他们不再追求传统的高楼格子间办公环境，而是更倾向于选择有创意的办公场地，这些场地通常具有社群氛围，并提供丰富的体验，如饮食和娱乐设施。这反映了年轻人对办公环境的理解和需求的转变。",
+      "evidence_ids": [
+        12,
+        47,
+        49
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_44524064.json"
+    },
+    {
+      "sample_id": "emug_l1_026",
+      "level": "L1",
+      "source_file": "mug_vcsum_551606525.json",
+      "query_id": "mug_vcsum_551606525.json_L1_0",
+      "topic": "政务服务便民改革目标从“最多跑一次”升级为“一趟都不用跑”",
+      "pattern": "A",
+      "question": "关于政务服务便民改革目标的结论是什么？",
+      "gold_answer": "最终决定是将政务服务目标升级为“一趟都不用跑”的零跑动模式，通过多渠道、多层次、跨部门的信息共享与协同治理以及流程再造，提供全流程线上、无缝隙的公共服务。",
+      "evidence_ids": [
+        20
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_551606525.json"
+    },
+    {
+      "sample_id": "emug_l1_027",
+      "level": "L1",
+      "source_file": "mug_vcsum_640283810.json",
+      "query_id": "mug_vcsum_640283810.json_L1_0",
+      "topic": "监管路径选择：沙盒 vs 创新试点",
+      "pattern": "B",
+      "question": "关于资本市场金融科技监管路径选择（沙盒 vs 创新试点）的结论是什么？",
+      "gold_answer": "我国明确选择“金融科技创新试点”作为主要监管路径（而非监管沙盒），已在北京、上海、深圳、广州、南京五城落地，并由深交所参与专业评估，以完善长效监管框架和形成包容审慎的监管环境。",
+      "evidence_ids": [
+        22,
+        26
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_640283810.json"
+    },
+    {
+      "sample_id": "emug_l1_028",
+      "level": "L1",
+      "source_file": "mug_vcsum_838375651.json",
+      "query_id": "mug_vcsum_838375651.json_L1_0",
+      "topic": "腺病毒疫苗低/中剂量免疫效力评估请求的被搁置",
+      "pattern": "C",
+      "question": "关于在取消高剂量后，腺病毒疫苗低/中剂量免疫效力是否足够的结论是什么？",
+      "gold_answer": "最终决定是：不作出明确结论，暂不承诺低/中剂量免疫效力的充分性（问题被搁置）。简要理由：仅提出以中和抗体比较的替代评估方向，但明确表示“不能下这个结论”。",
+      "evidence_ids": [
+        81,
+        84,
+        85
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_838375651.json"
+    },
+    {
+      "sample_id": "emug_l1_029",
+      "level": "L1",
+      "source_file": "mug_vcsum_503754314.json",
+      "query_id": "mug_vcsum_503754314.json_L1_1",
+      "topic": "DevOps转型与平台演进，以及从业者技能与岗位路径建议",
+      "pattern": "N/A",
+      "question": "会议中提到的DevOps转型对从业者的技能要求有哪些？",
+      "gold_answer": "会议中提到，DevOps转型对从业者的技能要求包括对管理流程的理解（如项目管理和敏捷方法论）以及对工程实践的掌握（如开发、测试、运维和运营）。此外，具备跨领域的T型技能和相关认证也被认为对职业转型有帮助。",
+      "evidence_ids": [
+        4,
+        6,
+        20
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_503754314.json"
+    },
+    {
+      "sample_id": "emug_l1_030",
+      "level": "L1",
+      "source_file": "mug_vcsum_804004060.json",
+      "query_id": "mug_vcsum_804004060.json_L1_0",
+      "topic": "对“高考后遗症”提法的否定与重新定位",
+      "pattern": "A",
+      "question": "关于“高考后遗症/高考综合症”这一提法的结论是什么？",
+      "gold_answer": "最终结论是否定该提法，认为“后遗症/综合症”的说法不合适，因而不予采用；对该称谓持不认可态度。",
+      "evidence_ids": [
+        1
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_804004060.json"
+    },
+    {
+      "sample_id": "emug_l1_031",
+      "level": "L1",
+      "source_file": "mug_vcsum_685476356.json",
+      "query_id": "mug_vcsum_685476356.json_L1_0",
+      "topic": "全球是否碎片化还是维持一体化的关键判断",
+      "pattern": "B",
+      "question": "关于全球经济是否走向碎片化的结论是什么？",
+      "gold_answer": "全球经济的一体化总体格局尚未被打破，当前仍以一体化为主；尽管存在碎片化风险与多重危机压力，这些并未改变总体状态。",
+      "evidence_ids": [
+        2,
+        3
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_685476356.json"
+    },
+    {
+      "sample_id": "emug_l1_032",
+      "level": "L1",
+      "source_file": "mug_vcsum_680857208.json",
+      "query_id": "mug_vcsum_680857208.json_L1_2",
+      "topic": "中国移动的转型路径与5G+产业赋能战略",
+      "pattern": "N/A",
+      "question": "中国移动在会议中提到的转型目标是什么？",
+      "gold_answer": "中国移动在会议中提到的转型目标是从传统的电信运营商转型为世界一流的信息服务科技创新公司。",
+      "evidence_ids": [
+        24,
+        55,
+        58
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_680857208.json"
+    },
+    {
+      "sample_id": "emug_l1_033",
+      "level": "L1",
+      "source_file": "mug_vcsum_385494938.json",
+      "query_id": "mug_vcsum_385494938.json_L1_0",
+      "topic": "圆桌发言顺序的决策反转",
+      "pattern": "A",
+      "question": "关于圆桌发言顺序的结论是什么？",
+      "gold_answer": "按当前PPT顺序倒序进行发言，由王磊先开始，随后按PPT倒序依次发言。主持人当场拍板采用这一倒序方式以适配新环节。",
+      "evidence_ids": [
+        6,
+        46
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_385494938.json"
+    },
+    {
+      "sample_id": "emug_l1_034",
+      "level": "L1",
+      "source_file": "mug_vcsum_761838097.json",
+      "query_id": "mug_vcsum_761838097.json_L1_2",
+      "topic": "核心主题确立：荒野与基督教",
+      "pattern": "B",
+      "question": "关于今天讲座的核心主题的结论是什么？",
+      "gold_answer": "讲座最终确定的核心主题是“荒野与基督教”。理由：主讲人明确将“荒野与基督教”定为今天的关键词，用以贯穿与诠释美国精神，此前关于托克维尔与背景铺陈为铺垫信息。",
+      "evidence_ids": [
+        6,
+        10
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_761838097.json"
+    },
+    {
+      "sample_id": "emug_l1_035",
+      "level": "L1",
+      "source_file": "mug_vcsum_714797042.json",
+      "query_id": "mug_vcsum_714797042.json_L1_0",
+      "topic": "双身份与“内容决定形式”理念驱动的EP风格塑造",
+      "pattern": "N/A",
+      "question": "会议中提到的音乐剧演员与原创歌手的身份有何不同？",
+      "gold_answer": "会议中提到，音乐剧演员的身份主要是演绎作者或导演塑造的角色，是创作环节的最后一环，而原创歌手则完全主导自己的创作，能够通过音乐表达自己的想法和内容。这种差异体现了两种身份在创作主导权和表达方式上的不同。",
+      "evidence_ids": [
+        8,
+        11,
+        13
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_714797042.json"
+    },
+    {
+      "sample_id": "emug_l1_036",
+      "level": "L1",
+      "source_file": "mug_vcsum_50139373.json",
+      "query_id": "mug_vcsum_50139373.json_L1_1",
+      "topic": "个人风格定位策略",
+      "pattern": "A",
+      "question": "关于个人风格定位策略的结论是什么？",
+      "gold_answer": "最终决定是不给自己设定固定风格，而是依据自身创作意愿并兼顾客户需求灵活创作，不刻意坚持某一种风格；因为在接触多元主题与客户后，认为无需被单一风格束缚。",
+      "evidence_ids": [
+        88,
+        90
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_50139373.json"
+    },
+    {
+      "sample_id": "emug_l1_037",
+      "level": "L1",
+      "source_file": "mug_vcsum_889553655.json",
+      "query_id": "mug_vcsum_889553655.json_L1_0",
+      "topic": "将传媒中心定位为数字研发中心的规划与领导层确认",
+      "pattern": "B",
+      "question": "关于大连新闻传媒中心功能定位的结论是什么？",
+      "gold_answer": "将大连新闻传媒中心定位为“大连数字研发中心”。该定位已获领导层同意并计划于下周由市长正式通过，作为全市十个文化与数字消费集聚区之一，推进势在必行。",
+      "evidence_ids": [
+        63,
+        71
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_889553655.json"
+    },
+    {
+      "sample_id": "emug_l1_038",
+      "level": "L1",
+      "source_file": "mug_vcsum_769241668.json",
+      "query_id": "mug_vcsum_769241668.json_L1_0",
+      "topic": "材料基因组与电池材料加速/智能化平台及测试方法匹配",
+      "pattern": "N/A",
+      "question": "会议中提到的欧盟2019电池三年计划涉及哪些与材料基因组相关的内容？",
+      "gold_answer": "欧盟2019电池三年计划中提到了多个与材料基因组相关的平台，包括电池材料加速平台、材料制备平台、基于人工智能的电池材料平台，以及电池材料回收方面的内容。这些平台旨在推动电池材料领域的研究和应用。",
+      "evidence_ids": [
+        4,
+        5,
+        28
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_769241668.json"
+    },
+    {
+      "sample_id": "emug_l1_039",
+      "level": "L1",
+      "source_file": "mug_vcsum_591628389.json",
+      "query_id": "mug_vcsum_591628389.json_L1_0",
+      "topic": "跨云一键迁移提议被明确否决（决策反转）",
+      "pattern": "A",
+      "question": "关于“阿里云是否在现阶段支持用户一键迁移到其他公有云”的结论是什么？",
+      "gold_answer": "结论：现阶段阿里云明确不会提供一键迁移到其他公有云的能力。简要说明：阿里云代表已明确表态当前不做，未来是否演进尚不确定，但当前决策是不做。",
+      "evidence_ids": [
+        38,
+        50
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_591628389.json"
+    },
+    {
+      "sample_id": "emug_l1_040",
+      "level": "L1",
+      "source_file": "mug_vcsum_889609583.json",
+      "query_id": "mug_vcsum_889609583.json_L1_0",
+      "topic": "2022届校招网申通道即时开启",
+      "pattern": "B",
+      "question": "关于2022届校招网申通道的结论是什么？",
+      "gold_answer": "将于直播活动结束后实时开启，面向同学开放线上投递，扫码即可第一时间提交简历。这是主持人明确传达的核心运营决定，抽奖与赠品信息为噪音且不影响该结论。",
+      "evidence_ids": [
+        11,
+        12
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_889609583.json"
+    },
+    {
+      "sample_id": "emug_l1_041",
+      "level": "L1",
+      "source_file": "mug_vcsum_92382517.json",
+      "query_id": "mug_vcsum_92382517.json_L1_1",
+      "topic": "总书记“一个也不能少”号召与国家助残政策的落地与响应",
+      "pattern": "N/A",
+      "question": "会议中提到的关于残障人士的国家政策有哪些具体内容？",
+      "gold_answer": "会议中提到，国家对残障人士的支持政策包括：如果企业雇佣10名以上的残障人士，并且这些员工占公司员工总数的25%以上，政府将给予企业税收返还，返还金额为当地最低工资的四倍。这些政策旨在鼓励企业雇佣残障人士，帮助他们实现就业和融入社会。",
+      "evidence_ids": [
+        4,
+        30,
+        26
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_92382517.json"
+    },
+    {
+      "sample_id": "emug_l1_042",
+      "level": "L1",
+      "source_file": "mug_vcsum_764841640.json",
+      "query_id": "mug_vcsum_764841640.json_L1_0",
+      "topic": "主持流程“问答”到“总结发言”的决策反转",
+      "pattern": "A",
+      "question": "关于后续会议流程安排的结论是什么？",
+      "gold_answer": "最终决定是改为每位嘉宾用3-4分钟进行收束性总结发言，聚焦核心素养与可落地的家长指导，由金老师先开始。理由：主持人考虑到时间有限并强调输出实用价值，宣布进行这一调整。",
+      "evidence_ids": [
+        25,
+        56
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_764841640.json"
+    },
+    {
+      "sample_id": "emug_l1_043",
+      "level": "L1",
+      "source_file": "mug_vcsum_926312175.json",
+      "query_id": "mug_vcsum_926312175.json_L1_0",
+      "topic": "筹建并运营上海市人工智能研发与转化功能平台的核心决策",
+      "pattern": "B",
+      "question": "关于是否建立并运营面向企业和社会服务的上海市人工智能研发与转化功能性平台的结论是什么？",
+      "gold_answer": "结论：双方决定共同筹建并运营面向企业和社会服务的上海市人工智能研发与转化功能性平台，作为合作的第一步。简要理由：会中明确表示正在积极筹建该平台，并强调“建设和运营世界一流的…功能性平台”是双方合作的首要举措，旨在依托微软亚洲研究院的技术积累与微软—颐电创新院载体，推进基础研究成果转化、赋能政府与企业数字化。",
+      "evidence_ids": [
+        9,
+        10
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_926312175.json"
+    },
+    {
+      "sample_id": "emug_l1_044",
+      "level": "L1",
+      "source_file": "mug_vcsum_926329201.json",
+      "query_id": "mug_vcsum_926329201.json_L1_0",
+      "topic": "华人运通“三智战略”与车路协同/智慧城市示范项目",
+      "pattern": "N/A",
+      "question": "华人运通的“三智战略”具体包含哪些内容？",
+      "gold_answer": "华人运通的“三智战略”包括智能汽车、智能交通和智慧城市的紧密结合与同步开发。通过开发智能汽车如HiPhi X，以及推动智能交通和智慧城市项目，展示未来城市管理和交通管理的方向。此外，与微软合作开发的技术也体现了这一战略，强调车路协同和智慧城市的深度融合。",
+      "evidence_ids": [
+        12,
+        16,
+        28
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_926329201.json"
+    },
+    {
+      "sample_id": "emug_l1_045",
+      "level": "L1",
+      "source_file": "mug_vcsum_77781355.json",
+      "query_id": "mug_vcsum_77781355.json_L1_1",
+      "topic": "从分散配置立场到被迫给出单一指数选择的反转",
+      "pattern": "A",
+      "question": "关于在必须从多个指数中单选一个的结论是什么？",
+      "gold_answer": "选择MSCI指数作为唯一标的。理由：其编制持续进化，逐步纳入中盘、趋向全市场并进行优选，整体质量更高。",
+      "evidence_ids": [
+        28,
+        29
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_77781355.json"
+    },
+    {
+      "sample_id": "emug_l1_046",
+      "level": "L1",
+      "source_file": "mug_vcsum_201751518.json",
+      "query_id": "mug_vcsum_201751518.json_L1_0",
+      "topic": "东莞家长持证上岗的核心政策",
+      "pattern": "B",
+      "question": "关于东莞家长持证上岗政策的结论是什么？",
+      "gold_answer": "东莞市教育局已将“家长持证上岗”确立为核心政策取向，并以家长学校为主阵地构建本土化、系统化、科学化的课程体系，要求每学年至少开设四次家长教育课程。理由：会议发言中明确提出“坚持家长持证上岗的核心理念”，其他如空中学堂、平台建设等为落实该政策的配套举措。",
+      "evidence_ids": [
+        106,
+        107,
+        108
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_201751518.json"
+    },
+    {
+      "sample_id": "emug_l1_047",
+      "level": "L1",
+      "source_file": "mug_vcsum_247313825.json",
+      "query_id": "mug_vcsum_247313825.json_L1_1",
+      "topic": "初中阶段以能力建设为本与中考前的短期提升策略",
+      "pattern": "N/A",
+      "question": "会议中讨论了初中阶段学习的重点是什么？",
+      "gold_answer": "会议中讨论了初中阶段学习的重点是培养学生的读书能力和学习能力。发言者建议在初一至初三的前半学期，学生应专注于养成良好的学习习惯和方法，例如通过阅读较难的书籍来锻炼能力，并利用自己的强项来弥补弱项。此外，发言者提到在中考前半学期，如果学生的基础扎实，可以通过短期的名师指导显著提高成绩。",
+      "evidence_ids": [
+        27,
+        29,
+        48
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_247313825.json"
+    },
+    {
+      "sample_id": "emug_l1_048",
+      "level": "L1",
+      "source_file": "mug_vcsum_811190633.json",
+      "query_id": "mug_vcsum_811190633.json_L1_0",
+      "topic": "生涯规划时机：等高考后 vs 尽早规划",
+      "pattern": "A",
+      "question": "关于高中生生涯规划时机的结论是什么？",
+      "gold_answer": "应尽早开展并及早行动。提前规划能让学生在填报志愿时更从容，同时显著提升学习动力、内驱力与对生活的热情。",
+      "evidence_ids": [
+        5,
+        12
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_811190633.json"
+    },
+    {
+      "sample_id": "emug_l1_049",
+      "level": "L1",
+      "source_file": "mug_vcsum_292353400.json",
+      "query_id": "mug_vcsum_292353400.json_L1_0",
+      "topic": "选股三要素优先级：护城河>景气度>估值（噪音中提炼信号）",
+      "pattern": "B",
+      "question": "关于选股时在“景气度/护城河/估值”三要素中的取舍结论是什么？",
+      "gold_answer": "优先级为：护城河第一、景气度第二、估值最后；如必须松弛一个变量，先松估值。理由：估值更多是结果，过度看估值易陷入价值陷阱；同时警惕“护城河深但行业已空心化”的标的。",
+      "evidence_ids": [
+        90,
+        91,
+        104
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_292353400.json"
+    },
+    {
+      "sample_id": "emug_l1_050",
+      "level": "L1",
+      "source_file": "mug_vcsum_541795525.json",
+      "query_id": "mug_vcsum_541795525.json_L1_0",
+      "topic": "企业数字化转型与传统信息化工作的衔接与转变路径（信息化部门角色与能力跃迁）",
+      "pattern": "N/A",
+      "question": "会议中提到企业数字化转型与传统信息化工作之间的关系是什么？",
+      "gold_answer": "会议中提到，企业数字化转型与传统信息化工作的关系主要体现在数据治理和生态体系的构建上。传统的信息化工作通常是基于业务需求和部门职能建立的信息系统，数据之间的贯通和交互较少。而在数字化转型中，需要实现数据的溯源和治理，搭建完整的数据治理体系。同时，信息化部门需要转变角色，构建技术和业务生态体系，将服务的业务部门纳入其中，通过不断创新和迭代，增强信息化和数字化能力的粘性和价值。",
+      "evidence_ids": [
+        25,
+        40,
+        58
+      ],
+      "transcript_path": "../transcripts/vcsum/mug_vcsum_541795525.json"
+    }
+  ]
+}
