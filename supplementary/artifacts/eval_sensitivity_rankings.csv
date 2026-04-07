@@ -1,0 +1,7 @@
+config,ranking,spearman_vs_default
+default_grounding_heavy,gemini-3-pro-preview > glm-5 > qwen3.5-397b-a17b > gpt-5 > qwen-plus > claude-opus-4-6 > deepseek-v3.2,1.0
+balanced,gemini-3-pro-preview > glm-5 > qwen3.5-397b-a17b > gpt-5 > qwen-plus > claude-opus-4-6 > deepseek-v3.2,1.0
+answer_heavy,gemini-3-pro-preview > glm-5 > qwen3.5-397b-a17b > gpt-5 > qwen-plus > claude-opus-4-6 > deepseek-v3.2,1.0
+reasoning_heavy,gemini-3-pro-preview > glm-5 > qwen3.5-397b-a17b > gpt-5 > qwen-plus > claude-opus-4-6 > deepseek-v3.2,1.0
+low_penalty,gemini-3-pro-preview > glm-5 > qwen3.5-397b-a17b > gpt-5 > qwen-plus > claude-opus-4-6 > deepseek-v3.2,1.0
+high_penalty,gemini-3-pro-preview > glm-5 > qwen3.5-397b-a17b > gpt-5 > qwen-plus > claude-opus-4-6 > deepseek-v3.2,1.0

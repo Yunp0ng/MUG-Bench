@@ -1,0 +1,17 @@
+{
+  "candidate_instances": 1729,
+  "decision_counts": {
+    "rewrite": 175,
+    "keep": 1042,
+    "upgrade": 5,
+    "drop": 1,
+    "downgrade": 506
+  },
+  "final_status_counts": {
+    "rewritten": 155,
+    "kept": 1042,
+    "moved": 511,
+    "dropped": 1,
+    "post_audit_failed": 20
+  }
+}

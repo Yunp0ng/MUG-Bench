@@ -209,6 +209,20 @@ This file contains **concrete Chinese prompts and English translations** for:
 - concrete cleanup prompts
 - concrete evaluation prompts
 
+## Supplementary Materials
+
+Additional supplementary materials for the paper submission are provided in:
+
+- [supplementary/README.md](supplementary/README.md)
+
+This supplementary folder currently includes:
+
+- a structured supplementary write-up
+- a bilingual prompt reference mirror
+- evaluation sensitivity tables
+- audit / cleanup statistics
+- L3 subtype distribution and subtype-wise results
+
 ## Installation
 
 ```bash
