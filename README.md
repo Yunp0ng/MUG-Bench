@@ -201,13 +201,13 @@ Prompt documentation is provided in:
 
 - [prompt_reference.md](docs/prompt_reference.md)
 
-This file contains **Chinese and English descriptions** for:
+This file contains **concrete Chinese prompts and English translations** for:
 
-- evidence mining prompts
-- QA generation prompts
-- audit prompts
-- cleanup prompts
-- evaluation prompt/rubric roles
+- concrete evidence mining prompt templates
+- concrete QA generation prompt templates
+- concrete audit prompts
+- concrete cleanup prompts
+- concrete evaluation prompts
 
 ## Installation
 
