@@ -463,3 +463,93 @@ The top two models swap positions under the alternative judge, while the remaini
 | l3_implicit_rejection_miss | 0.9507 | 0.7752 | 91 | 66 |
 
 Agreement is high for contradiction and the L3-specific penalty flags, while hallucination is visibly less stable than the other binary penalties under judge substitution.
+
+## 9. RAG Baseline Details and Failure Analysis
+
+The RAG results in the main paper are produced by the script [real_meeting_RAG/run_meeting_rag_eval.sh](real_meeting_RAG/run_meeting_rag_eval.sh). This baseline is a lightweight adaptive Meeting-RAG implementation rather than a heavily tuned retrieval system.
+
+### 9.1 Implementation Details
+
+The baseline follows three steps.
+
+1. Build meeting-local chunk caches.
+2. Retrieve a small set of chunks for each question.
+3. Generate an answer and utterance-ID citations from the retrieved chunks.
+
+The released implementation uses the following design choices:
+
+- chunk unit:
+  utterance-level sliding windows rather than semantic segments or oracle evidence spans
+- chunk policy:
+  `window_size = 10` utterances and `stride = 5`
+  see [build_meeting_chunks.py](real_meeting_RAG/build_meeting_chunks.py)
+- chunk content:
+  each chunk stores `chunk_id`, utterance range, utterance IDs, speaker span, and speaker-attributed text
+  see [build_meeting_chunks.py](real_meeting_RAG/build_meeting_chunks.py)
+- retrieval function:
+  a lexical-overlap scorer over tokenized question and chunk text, with a small bonus for chunk coverage
+  this is neither BM25 nor dense retrieval
+  see [meeting_rag_runner.py](real_meeting_RAG/meeting_rag_runner.py)
+- first-round retrieval:
+  `top_k = 6`
+  see [meeting_rag_runner.py](real_meeting_RAG/meeting_rag_runner.py)
+- routing policy:
+  `mode = adaptive`
+  `L2` and `L3` default to multi-round retrieval; `L1` switches to multi-round only for questions with markers such as “最终”, “决定”, or “结论”
+  see [meeting_rag_runner.py](real_meeting_RAG/meeting_rag_runner.py)
+- multi-round retrieval:
+  the model first answers from round-1 chunks, then generates a follow-up retrieval query, retrieves additional chunks with `top_k = 3`, and answers again from the merged context
+  see [meeting_rag_runner.py](real_meeting_RAG/meeting_rag_runner.py)
+- generation protocol:
+  the model must return JSON containing `final_answer`, `predicted_evidence_ids`, and `used_chunk_ids`
+  see [meeting_rag_runner.py](real_meeting_RAG/meeting_rag_runner.py)
+- decoding:
+  `temperature = 0.1`, `max_retries = 3`, `request_timeout = 180`
+  see [meeting_rag_runner.py](real_meeting_RAG/meeting_rag_runner.py)
+
+This implementation is intentionally lightweight. It does not include dense retrieval, BM25-hybrid retrieval, reranking, speaker-aware retrieval scoring, event-boundary segmentation, or oracle-evidence retrieval.
+
+### 9.2 Main Quantitative Result
+
+Table A6 compares the three Qwen small models with and without the lightweight RAG pipeline. Scores are level-wise total scores under the same evaluation framework as the main paper.
+
+| Model | L1 w/o RAG | L1 +RAG | Delta | L2 w/o RAG | L2 +RAG | Delta | L3 w/o RAG | L3 +RAG | Delta |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Qwen3.5-4B | 72.65 | 30.91 | -41.74 | 71.00 | 56.80 | -14.20 | 48.68 | 24.13 | -24.55 |
+| Qwen3.5-9B | 74.23 | 31.46 | -42.77 | 73.21 | 55.97 | -17.24 | 55.76 | 25.19 | -30.57 |
+| Qwen3.5-27B | 79.59 | 33.17 | -46.42 | 80.63 | 62.01 | -18.62 | 57.04 | 35.37 | -21.67 |
+
+The degradation is consistent across all three models and all three levels, with the largest drops on `L1` and `L3`.
+
+### 9.3 Error Profile Under RAG
+
+The RAG runs also increase failure rates on contradiction and L3-specific penalties. Table A7 reports the main error statistics for the three RAG models.
+
+| Model | Contradiction Rate | Hallucination Rate | L3 Decision Flip | L3 Noise Contamination | L3 Implicit Rejection Miss |
+|---|---:|---:|---:|---:|---:|
+| Qwen3.5-4B +RAG | 0.348 | 0.217 | 0.468 | 0.711 | 0.682 |
+| Qwen3.5-9B +RAG | 0.382 | 0.204 | 0.433 | 0.657 | 0.677 |
+| Qwen3.5-27B +RAG | 0.385 | 0.166 | 0.353 | 0.552 | 0.572 |
+
+For comparison, the non-RAG versions are substantially lower on the same error families:
+
+- Qwen3.5-4B:
+  contradiction `0.104`, decision-flip `0.313`, noise contamination `0.488`, implicit-rejection miss `0.463`
+- Qwen3.5-9B:
+  contradiction `0.095`, decision-flip `0.224`, noise contamination `0.408`, implicit-rejection miss `0.383`
+- Qwen3.5-27B:
+  contradiction `0.082`, decision-flip `0.239`, noise contamination `0.393`, implicit-rejection miss `0.398`
+
+### 9.4 Failure Analysis
+
+The failure cases indicate that the negative RAG result is not a generic claim about all retrieval-augmented methods. Rather, it reflects a concrete mismatch between this lightweight retrieval design and the structure of meeting transcripts.
+
+First, the chunk unit is often too coarse for `L1`. Even though `L1` asks for local evidence, the current retriever uses overlapping 10-utterance windows and lexical overlap rather than precise utterance matching. As a result, the retrieved chunk may be topically related but still miss the exact local fact being asked for. This is visible in many `L1` zero-score cases, where the model answers from nearby process discussion rather than from the decisive utterance. For example, in `01-G2 weekly review_2023-07-07-会议原文.json_L1_10`, the gold answer is about image, audio, and touch-feedback redesign, but the RAG answer shifts to “logic/UI issues” because the retrieved chunks emphasize procedural discussion rather than the exact engineering scope.
+
+Second, iterative retrieval does not reliably repair missed evidence in `L2`. In the current implementation, the second round depends on a model-generated follow-up query derived from the first-round answer hypothesis. Once the first-round retrieval is already off-target, the second round tends to reinforce the same wrong path instead of recovering the missing cross-turn evidence. This pattern appears in cases such as `04-Weekly pre-NPIS review_2023-07-05-会议原文.json_L2_0` and `..._L2_1`, where the model keeps retrieving content about adjacent project discussion rather than the multi-turn evidence chain required by the question.
+
+Third, `L3` is especially vulnerable because final decisions are often not localized in one chunk. Many `L3` questions require tracking revision, rejection, or late-stage confirmation across a long trajectory. A sliding-window retriever can surface process fragments, but it cannot guarantee that the retrieved set contains the decisive final-state utterances. When this happens, the model often answers with an earlier proposal or an intermediate discussion state. The failure cases show this clearly: on `01-G2 weekly review_2023-07-07-会议原文.json_L3_0`, the model returns a process-stage trigger rule instead of the final manual-trigger decision; on `02-智会solution P780方案落地方案-会议原文.json_L3_1`, it reports that no final operating-system decision was made, even though the meeting had already converged on Windows IoT; on `03-外发打印模型草图确认-会议原文.json_L3_1`, it misses the implicit rejection of spray-paint support and treats the discussion as unresolved.
+
+Fourth, the retrieved context can amplify procedural noise. Meeting transcripts contain agenda changes, temporary proposals, clarifications, and interpersonal coordination. Under the current design, retrieval is guided by lexical matching, so chunks with repeated topical words may outrank the small number of decisive utterances that encode the actual final answer. This produces the common error pattern of answering from discussion process rather than business conclusion. The high `l3_noise_contamination` rates in Table A7 are consistent with this mechanism.
+
+Overall, these results should be interpreted narrowly: they show that a lightweight, non-reranked, sliding-window Meeting-RAG baseline is insufficient for EMUG-Bench. They do not imply that retrieval augmentation is fundamentally ineffective for meeting understanding. Instead, they suggest that effective meeting QA will likely require retrieval units and routing strategies that are more sensitive to turn structure, evidence chaining, and final-state tracking.
