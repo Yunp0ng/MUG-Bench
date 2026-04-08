@@ -1,22 +1,10 @@
 # Supplementary Material for EMUG-Bench
 
-This repository serves as the supplementary material for the EMUG-Bench submission. It provides the public sample release, prompt documentation, benchmark schema, and additional analyses that complement the main paper.
+This document provides supplementary material for the EMUG-Bench submission. It complements the main paper by clarifying the public release format, prompt and output protocol, annotation and cleanup procedure, evaluation sensitivity, L3 subtype statistics, cross-judge robustness, and the implementation details of the lightweight RAG baseline.
 
 ## 1. Public Release and Access
 
-The public repository contains:
-
-- a sampled benchmark subset with `50` instances for each of `L1`, `L2`, and `L3`
-- aligned VCSum transcripts for the released subset
-- data construction scripts
-- evaluation scripts
-- bilingual prompt documentation
-
-The full EMUG-Bench release is not hosted on GitHub. Full access is available upon request for academic or research use.
-
-Contact:
-
-- `Yunpeng.Li21@student.xjtlu.edu.cn`
+To make the benchmark inspectable while respecting the release constraints of the full dataset, the public repository exposes a sampled subset with `50` instances for each of `L1`, `L2`, and `L3`, together with the aligned VCSum transcripts, the released construction and evaluation scripts, and bilingual prompt documentation. The full EMUG-Bench release is not hosted on GitHub; access is available upon request for academic or research use via `Yunpeng.Li21@student.xjtlu.edu.cn`.
 
 ## 2. Repository Contents
 
@@ -38,15 +26,7 @@ EMUG-Bench/
 └── requirements.txt
 ```
 
-The released benchmark files are:
-
-- [data/benchmark/L1.json](data/benchmark/L1.json)
-- [data/benchmark/L2.json](data/benchmark/L2.json)
-- [data/benchmark/L3.json](data/benchmark/L3.json)
-
-The aligned transcript files are under:
-
-- [data/transcripts/vcsum](data/transcripts/vcsum)
+The released benchmark files are [data/benchmark/L1.json](data/benchmark/L1.json), [data/benchmark/L2.json](data/benchmark/L2.json), and [data/benchmark/L3.json](data/benchmark/L3.json). The aligned transcripts for the public subset are stored under [data/transcripts/vcsum](data/transcripts/vcsum).
 
 ## 3. Data Schema
 
@@ -77,7 +57,7 @@ Each released level file follows the schema below:
 }
 ```
 
-Field description:
+The fields have the following meanings:
 
 - `dataset`: dataset name
 - `subset`: release type
@@ -115,7 +95,7 @@ Each transcript file is stored in a unified JSON format:
 }
 ```
 
-Field description:
+The transcript fields have the following meanings:
 
 - `dataset`: dataset family name
 - `source_dataset`: original source dataset
@@ -130,18 +110,7 @@ Field description:
 
 ## 4. Prompt and Output Protocol
 
-The public repository releases the concrete prompt templates used in the benchmark pipeline. These are operational prompts rather than illustrative examples and are documented in bilingual form in [docs/prompt_reference.md](docs/prompt_reference.md).
-
-Covered prompt stages:
-
-- L1 evidence mining
-- L2 evidence mining
-- L3 evidence mining
-- L1/L2 QA generation
-- L3 QA generation
-- audit
-- cleanup rewrite
-- evaluation judge
+This section supplements the methodology description in the main paper by specifying the released prompt and output protocol. The public repository exposes the concrete prompt templates actually used in the released pipeline rather than illustrative prompt examples; these prompts are documented in bilingual form in [docs/prompt_reference.md](docs/prompt_reference.md). The released prompt stages cover L1/L2/L3 evidence mining, QA generation, audit, cleanup rewrite, and evaluation.
 
 ### 4.1 Evidence Mining Output
 
@@ -208,7 +177,7 @@ L3 evidence mining additionally includes a pattern field:
 }
 ```
 
-The evaluation pipeline scores answer quality, evidence grounding, level-specific skill, penalties, and citation overlap from utterance-ID evidence references.
+The evaluation pipeline then scores answer quality, evidence grounding, level-specific skill, penalties, and citation overlap from utterance-ID evidence references.
 
 ## 5. Annotation, Audit, and Cleanup
 
@@ -221,22 +190,7 @@ The benchmark construction pipeline has four stages:
 
 All model-assisted stages use GPT-5, while all final retained QA instances and evidence annotations are manually checked before inclusion in the released benchmark.
 
-Audit evaluates:
-
-- level fit
-- question leakage
-- evidence sufficiency
-- difficulty alignment
-
-Audit actions are:
-
-- `keep`
-- `downgrade`
-- `upgrade`
-- `rewrite`
-- `drop`
-
-In the paper text, `upgrade` and `downgrade` are abstracted as `relabel`.
+The audit stage jointly evaluates level fit, question leakage, evidence sufficiency, and difficulty alignment. It assigns one of five implementation-level actions: `keep`, `downgrade`, `upgrade`, `rewrite`, or `drop`. In the paper text, `upgrade` and `downgrade` are abstracted as `relabel`.
 
 ### 5.1 Cleanup Statistics
 
@@ -261,7 +215,7 @@ Final removed instances consist of:
 - direct drop: `1`
 - post-audit failure after rewrite: `20`
 
-These statistics show that the cleanup stage is conservative: most imperfect instances are repaired through relabeling or QA rewrite rather than being removed from the final benchmark.
+These statistics clarify an implementation detail that is only summarized briefly in the main paper: the cleanup stage is conservative, and most imperfect instances are repaired through relabeling or QA rewrite rather than being removed from the final benchmark.
 
 ## 6. Evaluation Framework and Sensitivity Analysis
 
@@ -291,7 +245,7 @@ Penalty settings:
 - L3 auxiliary subtype error: `3`
 - penalty cap: `30`
 
-To test whether the main conclusions depend on a narrow coefficient choice, we recomputed the frontier-model scores under six alternative settings.
+To supplement the evaluation framework in the main paper, we tested whether the main conclusions depend strongly on one narrow coefficient choice. We therefore recomputed the frontier-model scores under six alternative settings.
 
 | Setting | A | E | L | Penalty Scale |
 |---|---:|---:|---:|---:|
@@ -325,7 +279,7 @@ To test whether the main conclusions depend on a narrow coefficient choice, we r
 | Low-penalty | Gemini-3-Pro > GLM-5 > Qwen3.5-397B > GPT-5 > Qwen-Plus > Claude-Opus-4.6 > DeepSeek-V3.2 | 1.0 |
 | High-penalty | Gemini-3-Pro > GLM-5 > Qwen3.5-397B > GPT-5 > Qwen-Plus > Claude-Opus-4.6 > DeepSeek-V3.2 | 1.0 |
 
-Across all six settings, `L3` remains the hardest level for every frontier model and the model ordering is unchanged. This indicates that the headline conclusions are not an artifact of one specific coefficient choice.
+Across all six settings, `L3` remains the hardest level for every frontier model and the model ordering is unchanged. This supports the interpretation that the headline conclusions reported in the main paper are not artifacts of one specific coefficient choice.
 
 ## 7. L3 Subtype-wise Results
 
@@ -355,7 +309,7 @@ Subtype `B` is much smaller than `A` and `C`, so subtype-wise conclusions for `B
 | Qwen3.5-9B | 53.39 | 71.37 | 55.11 |
 | Qwen3.5-4B | 41.56 | 64.82 | 49.81 |
 
-Subtype `C` is the largest and remains challenging across models. Subtype `A` is also difficult. Subtype `B` appears easier for stronger models, but that pattern should be interpreted together with its limited sample count.
+These subtype statistics complement the aggregate `L3` results in the main paper. Subtype `C` is the largest and remains challenging across models; subtype `A` is also difficult. Subtype `B` appears easier for stronger models, but that pattern should be interpreted together with its limited sample count.
 
 ## 8. Cross-Judge Robustness
 
@@ -432,7 +386,7 @@ The following tables report the mean `A`, `E`, `L`, and overall scores for the s
 | Claude-Opus-4.6 | 29 | 18.70 | 24.39 | 16.76 | 49.32 | 20.81 | 25.55 | 19.20 | 59.40 |
 | DeepSeek-V3.2 | 30 | 16.24 | 21.04 | 14.24 | 42.00 | 17.52 | 22.42 | 16.92 | 50.33 |
 
-The `L3` table addresses a key concern about judge bias. Under both judges, `GPT-5` remains the strongest `L3` model on this robustness subset:
+The `L3` table addresses a key concern raised by the review process about possible judge bias. Under both judges, `GPT-5` remains the strongest `L3` model on this robustness subset:
 
 - `56.84` under the GPT-5 judge
 - `67.58` under the Gemini judge
@@ -466,17 +420,11 @@ Agreement is high for contradiction and the L3-specific penalty flags, while hal
 
 ## 9. RAG Baseline Details and Failure Analysis
 
-The RAG results in the main paper are produced by the script [real_meeting_RAG/run_meeting_rag_eval.sh](real_meeting_RAG/run_meeting_rag_eval.sh). This baseline is a lightweight adaptive Meeting-RAG implementation rather than a heavily tuned retrieval system.
+This section supplements the brief RAG description in the main paper. The reported RAG results are produced by [real_meeting_RAG/run_meeting_rag_eval.sh](real_meeting_RAG/run_meeting_rag_eval.sh), which implements a lightweight adaptive Meeting-RAG baseline rather than a heavily tuned retrieval system.
 
 ### 9.1 Implementation Details
 
-The baseline follows three steps.
-
-1. Build meeting-local chunk caches.
-2. Retrieve a small set of chunks for each question.
-3. Generate an answer and utterance-ID citations from the retrieved chunks.
-
-The released implementation uses the following design choices:
+The baseline follows three steps: it first builds meeting-local chunk caches, then retrieves a small set of chunks for each question, and finally generates an answer together with utterance-ID citations from the retrieved chunks. The main design choices are as follows:
 
 - chunk unit:
   utterance-level sliding windows rather than semantic segments or oracle evidence spans
@@ -507,7 +455,7 @@ The released implementation uses the following design choices:
   `temperature = 0.1`, `max_retries = 3`, `request_timeout = 180`
   see [meeting_rag_runner.py](real_meeting_RAG/meeting_rag_runner.py)
 
-This implementation is intentionally lightweight. It does not include dense retrieval, BM25-hybrid retrieval, reranking, speaker-aware retrieval scoring, event-boundary segmentation, or oracle-evidence retrieval.
+This implementation is intentionally lightweight. It does not include dense retrieval, BM25-hybrid retrieval, reranking, speaker-aware retrieval scoring, event-boundary segmentation, or oracle-evidence retrieval. Accordingly, the negative RAG result in the main paper should be interpreted as a result about this specific lightweight baseline rather than as a general claim about all retrieval-augmented approaches.
 
 ### 9.2 Main Quantitative Result
 
@@ -519,7 +467,7 @@ Table A6 compares the three Qwen small models with and without the lightweight R
 | Qwen3.5-9B | 74.23 | 31.46 | -42.77 | 73.21 | 55.97 | -17.24 | 55.76 | 25.19 | -30.57 |
 | Qwen3.5-27B | 79.59 | 33.17 | -46.42 | 80.63 | 62.01 | -18.62 | 57.04 | 35.37 | -21.67 |
 
-The degradation is consistent across all three models and all three levels, with the largest drops on `L1` and `L3`.
+The degradation is consistent across all three models and all three levels, with the largest drops on `L1` and `L3`. This pattern aligns with the main paper’s qualitative claim that naive retrieval is particularly mismatched to local precision and final-state reasoning in meetings.
 
 ### 9.3 Error Profile Under RAG
 
