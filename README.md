@@ -258,6 +258,8 @@ To supplement the evaluation framework in the main paper, we tested whether the 
 
 ### 6.1 Recomputed Overall Scores
 
+The scores in Table A1 are overall benchmark scores, i.e., means aggregated over the full benchmark rather than level-specific averages.
+
 | Model | Default | Balanced | Answer-heavy | Reasoning-heavy | Low-penalty | High-penalty |
 |---|---:|---:|---:|---:|---:|---:|
 | Gemini-3-Pro | 82.64 | 83.05 | 83.21 | 83.30 | 83.44 | 82.04 |
@@ -268,7 +270,47 @@ To supplement the evaluation framework in the main paper, we tested whether the 
 | Claude-Opus-4.6 | 73.78 | 74.52 | 74.91 | 74.88 | 75.44 | 72.37 |
 | DeepSeek-V3.2 | 72.27 | 72.85 | 73.14 | 73.16 | 73.73 | 71.10 |
 
-### 6.2 Ranking Stability
+### 6.2 Level-wise Scores Under Alternative Settings
+
+To make the coefficient sensitivity more interpretable, Tables A2-A4 report the recomputed scores separately for `L1`, `L2`, and `L3`.
+
+#### L1
+
+| Model | Default | Balanced | Answer-heavy | Reasoning-heavy | Low-penalty | High-penalty |
+|---|---:|---:|---:|---:|---:|---:|
+| Gemini-3-Pro | 85.88 | 86.58 | 86.89 | 86.99 | 86.49 | 85.28 |
+| GLM-5 | 80.60 | 81.49 | 81.94 | 81.94 | 81.60 | 79.61 |
+| Qwen3.5-397B | 80.64 | 81.46 | 81.86 | 81.88 | 81.62 | 79.67 |
+| GPT-5 | 76.85 | 77.66 | 78.10 | 78.03 | 77.98 | 75.80 |
+| Qwen-Plus | 76.80 | 77.63 | 78.08 | 77.99 | 78.09 | 75.60 |
+| Claude-Opus-4.6 | 75.78 | 76.78 | 77.37 | 77.20 | 77.27 | 74.35 |
+| DeepSeek-V3.2 | 74.75 | 75.55 | 75.94 | 75.98 | 76.06 | 73.56 |
+
+#### L2
+
+| Model | Default | Balanced | Answer-heavy | Reasoning-heavy | Low-penalty | High-penalty |
+|---|---:|---:|---:|---:|---:|---:|
+| Gemini-3-Pro | 84.72 | 85.02 | 85.10 | 85.24 | 85.08 | 84.38 |
+| GLM-5 | 82.02 | 82.60 | 82.85 | 82.94 | 82.75 | 81.30 |
+| Qwen3.5-397B | 81.23 | 81.87 | 82.14 | 82.24 | 82.03 | 80.44 |
+| Qwen-Plus | 76.45 | 77.01 | 77.25 | 77.33 | 77.51 | 75.45 |
+| Claude-Opus-4.6 | 75.83 | 76.54 | 76.80 | 77.00 | 77.11 | 74.59 |
+| DeepSeek-V3.2 | 75.07 | 75.63 | 75.88 | 75.95 | 76.09 | 74.07 |
+| GPT-5 | 74.08 | 74.59 | 74.85 | 74.84 | 75.07 | 73.13 |
+
+#### L3
+
+| Model | Default | Balanced | Answer-heavy | Reasoning-heavy | Low-penalty | High-penalty |
+|---|---:|---:|---:|---:|---:|---:|
+| GPT-5 | 68.08 | 68.04 | 68.11 | 67.96 | 70.80 | 66.64 |
+| Gemini-3-Pro | 62.56 | 62.29 | 62.26 | 62.07 | 65.73 | 61.05 |
+| Qwen3.5-397B | 61.85 | 61.55 | 61.46 | 61.35 | 65.15 | 59.91 |
+| GLM-5 | 61.41 | 61.26 | 61.30 | 61.10 | 64.59 | 59.69 |
+| Claude-Opus-4.6 | 58.62 | 58.48 | 58.59 | 58.26 | 62.33 | 56.69 |
+| Qwen-Plus | 54.71 | 54.77 | 54.93 | 54.75 | 58.50 | 52.91 |
+| DeepSeek-V3.2 | 52.51 | 52.34 | 52.39 | 52.16 | 56.14 | 50.75 |
+
+### 6.3 Ranking Stability
 
 | Setting | Ranking | Spearman vs. Default |
 |---|---|---:|
@@ -420,40 +462,11 @@ Agreement is high for contradiction and the L3-specific penalty flags, while hal
 
 ## 9. RAG Baseline Details and Failure Analysis
 
-This section supplements the brief RAG description in the main paper. The reported RAG results are produced by [real_meeting_RAG/run_meeting_rag_eval.sh](real_meeting_RAG/run_meeting_rag_eval.sh), which implements a lightweight adaptive Meeting-RAG baseline rather than a heavily tuned retrieval system.
+This section supplements the brief RAG description in the main paper. The reported RAG results come from a lightweight adaptive Meeting-RAG baseline rather than a heavily tuned retrieval system.
 
 ### 9.1 Implementation Details
 
-The baseline follows three steps: it first builds meeting-local chunk caches, then retrieves a small set of chunks for each question, and finally generates an answer together with utterance-ID citations from the retrieved chunks. The main design choices are as follows:
-
-- chunk unit:
-  utterance-level sliding windows rather than semantic segments or oracle evidence spans
-- chunk policy:
-  `window_size = 10` utterances and `stride = 5`
-  see [build_meeting_chunks.py](real_meeting_RAG/build_meeting_chunks.py)
-- chunk content:
-  each chunk stores `chunk_id`, utterance range, utterance IDs, speaker span, and speaker-attributed text
-  see [build_meeting_chunks.py](real_meeting_RAG/build_meeting_chunks.py)
-- retrieval function:
-  a lexical-overlap scorer over tokenized question and chunk text, with a small bonus for chunk coverage
-  this is neither BM25 nor dense retrieval
-  see [meeting_rag_runner.py](real_meeting_RAG/meeting_rag_runner.py)
-- first-round retrieval:
-  `top_k = 6`
-  see [meeting_rag_runner.py](real_meeting_RAG/meeting_rag_runner.py)
-- routing policy:
-  `mode = adaptive`
-  `L2` and `L3` default to multi-round retrieval; `L1` switches to multi-round only for questions with markers such as “最终”, “决定”, or “结论”
-  see [meeting_rag_runner.py](real_meeting_RAG/meeting_rag_runner.py)
-- multi-round retrieval:
-  the model first answers from round-1 chunks, then generates a follow-up retrieval query, retrieves additional chunks with `top_k = 3`, and answers again from the merged context
-  see [meeting_rag_runner.py](real_meeting_RAG/meeting_rag_runner.py)
-- generation protocol:
-  the model must return JSON containing `final_answer`, `predicted_evidence_ids`, and `used_chunk_ids`
-  see [meeting_rag_runner.py](real_meeting_RAG/meeting_rag_runner.py)
-- decoding:
-  `temperature = 0.1`, `max_retries = 3`, `request_timeout = 180`
-  see [meeting_rag_runner.py](real_meeting_RAG/meeting_rag_runner.py)
+The baseline uses overlapping utterance-window chunks rather than semantic segments or oracle evidence spans. Each chunk contains 10 utterances with a stride of 5, and retrieval is based on lexical overlap between the question and chunk text, with `top_k = 6` in the first round. Under the adaptive routing policy, `L2` and `L3` default to multi-round retrieval, while `L1` switches to multi-round only for questions with markers such as “最终”, “决定”, or “结论”. In the second round, the model first generates a follow-up query from the initial answer hypothesis and then retrieves additional chunks with `top_k = 3`. The generation side uses a constrained JSON output containing `final_answer`, `predicted_evidence_ids`, and `used_chunk_ids`, with `temperature = 0.1`, `max_retries = 3`, and `request_timeout = 180`.
 
 This implementation is intentionally lightweight. It does not include dense retrieval, BM25-hybrid retrieval, reranking, speaker-aware retrieval scoring, event-boundary segmentation, or oracle-evidence retrieval. Accordingly, the negative RAG result in the main paper should be interpreted as a result about this specific lightweight baseline rather than as a general claim about all retrieval-augmented approaches.
 
@@ -490,14 +503,6 @@ For comparison, the non-RAG versions are substantially lower on the same error f
 
 ### 9.4 Failure Analysis
 
-The failure cases indicate that the negative RAG result is not a generic claim about all retrieval-augmented methods. Rather, it reflects a concrete mismatch between this lightweight retrieval design and the structure of meeting transcripts.
+The failure cases suggest that the negative RAG result arises from a mismatch between this lightweight retrieval design and the structure of meeting transcripts. For `L1`, the main problem is retrieval granularity: even though the target evidence is local, a 10-utterance sliding window is often still too coarse, so the model retrieves nearby procedural discussion rather than the decisive utterance itself. For `L2`, the second retrieval round does not reliably recover from an off-target first round, because the follow-up query is generated from the model’s initial answer hypothesis; once that hypothesis is already wrong, the second round tends to reinforce the same mistaken path rather than recover the missing cross-turn chain.
 
-First, the chunk unit is often too coarse for `L1`. Even though `L1` asks for local evidence, the current retriever uses overlapping 10-utterance windows and lexical overlap rather than precise utterance matching. As a result, the retrieved chunk may be topically related but still miss the exact local fact being asked for. This is visible in many `L1` zero-score cases, where the model answers from nearby process discussion rather than from the decisive utterance. For example, in `01-G2 weekly review_2023-07-07-会议原文.json_L1_10`, the gold answer is about image, audio, and touch-feedback redesign, but the RAG answer shifts to “logic/UI issues” because the retrieved chunks emphasize procedural discussion rather than the exact engineering scope.
-
-Second, iterative retrieval does not reliably repair missed evidence in `L2`. In the current implementation, the second round depends on a model-generated follow-up query derived from the first-round answer hypothesis. Once the first-round retrieval is already off-target, the second round tends to reinforce the same wrong path instead of recovering the missing cross-turn evidence. This pattern appears in cases such as `04-Weekly pre-NPIS review_2023-07-05-会议原文.json_L2_0` and `..._L2_1`, where the model keeps retrieving content about adjacent project discussion rather than the multi-turn evidence chain required by the question.
-
-Third, `L3` is especially vulnerable because final decisions are often not localized in one chunk. Many `L3` questions require tracking revision, rejection, or late-stage confirmation across a long trajectory. A sliding-window retriever can surface process fragments, but it cannot guarantee that the retrieved set contains the decisive final-state utterances. When this happens, the model often answers with an earlier proposal or an intermediate discussion state. The failure cases show this clearly: on `01-G2 weekly review_2023-07-07-会议原文.json_L3_0`, the model returns a process-stage trigger rule instead of the final manual-trigger decision; on `02-智会solution P780方案落地方案-会议原文.json_L3_1`, it reports that no final operating-system decision was made, even though the meeting had already converged on Windows IoT; on `03-外发打印模型草图确认-会议原文.json_L3_1`, it misses the implicit rejection of spray-paint support and treats the discussion as unresolved.
-
-Fourth, the retrieved context can amplify procedural noise. Meeting transcripts contain agenda changes, temporary proposals, clarifications, and interpersonal coordination. Under the current design, retrieval is guided by lexical matching, so chunks with repeated topical words may outrank the small number of decisive utterances that encode the actual final answer. This produces the common error pattern of answering from discussion process rather than business conclusion. The high `l3_noise_contamination` rates in Table A7 are consistent with this mechanism.
-
-Overall, these results should be interpreted narrowly: they show that a lightweight, non-reranked, sliding-window Meeting-RAG baseline is insufficient for EMUG-Bench. They do not imply that retrieval augmentation is fundamentally ineffective for meeting understanding. Instead, they suggest that effective meeting QA will likely require retrieval units and routing strategies that are more sensitive to turn structure, evidence chaining, and final-state tracking.
+The same design is even more fragile for `L3`, where the answer depends on final-state tracking across long discussion trajectories. In these cases the retriever often surfaces intermediate proposals, temporary clarifications, or adjacent agenda content instead of the final decision, implicit rejection, or late-stage reversal that the question requires. This is consistent with the high `l3_noise_contamination` and `l3_implicit_rejection_miss` rates in Table A7. Taken together, these results support a narrow interpretation: they show that a lightweight, non-reranked, sliding-window Meeting-RAG baseline is insufficient for EMUG-Bench, rather than implying that retrieval augmentation is fundamentally ineffective for meeting understanding.
