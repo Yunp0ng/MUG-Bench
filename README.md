@@ -1,54 +1,24 @@
-# EMUG-Bench
+# Supplementary Material for EMUG-Bench
 
-EMUG-Bench is an evidence-aware benchmark for Chinese meeting understanding.
+This repository serves as the supplementary material for the EMUG-Bench submission. It provides the public sample release, prompt documentation, benchmark schema, and additional analyses that complement the main paper.
 
-This public repository is a lightweight release for external users. It does **not** contain the full benchmark. The public version only includes a curated VCSum-based subset with:
+## 1. Public Release and Access
 
-- `50` samples for `L1`
-- `50` samples for `L2`
-- `50` samples for `L3`
-- corresponding VCSum transcripts for the selected samples
+The public repository contains:
+
+- a sampled benchmark subset with `50` instances for each of `L1`, `L2`, and `L3`
+- aligned VCSum transcripts for the released subset
 - data construction scripts
 - evaluation scripts
-- prompt documentation
+- bilingual prompt documentation
 
-The project name used in this repository is **EMUG-Bench**.
+The full EMUG-Bench release is not hosted on GitHub. Full access is available upon request for academic or research use.
 
-## Overview
+Contact:
 
-EMUG-Bench evaluates whether a model can:
+- `Yunpeng.Li21@student.xjtlu.edu.cn`
 
-- answer questions over meeting transcripts,
-- ground its answer in supporting evidence,
-- handle progressively harder meeting-understanding skills.
-
-The benchmark is organized into three levels:
-
-- `L1`: explicit local retrieval
-- `L2`: cross-turn information aggregation
-- `L3`: higher-level meeting understanding with decision reversal, procedural noise, and implicit rejection
-
-## Public Release Scope
-
-This GitHub repository only provides a **sampled release subset** for public inspection and lightweight experimentation.
-
-- All released QA samples in this repository are from **VCSum**.
-- Each level contains **50 manually selected samples**.
-- The selection prioritizes coverage across meetings and removes samples with obviously vague or visibly problematic question wording.
-- The corresponding transcripts are included under `data/transcripts/vcsum/`.
-- The previously uploaded full benchmark folders are not part of the public release anymore.
-
-## Full Access
-
-The full benchmark is **not** publicly distributed in this repository.
-
-If you need full access, please email:
-
-`Yunpeng.Li21@student.xjtlu.edu.cn`
-
-and request permission for the full EMUG-Bench release.
-
-## Repository Structure
+## 2. Repository Contents
 
 ```text
 EMUG-Bench/
@@ -68,31 +38,21 @@ EMUG-Bench/
 └── requirements.txt
 ```
 
-## Data Files
+The released benchmark files are:
 
-### Benchmark Files
+- [data/benchmark/L1.json](data/benchmark/L1.json)
+- [data/benchmark/L2.json](data/benchmark/L2.json)
+- [data/benchmark/L3.json](data/benchmark/L3.json)
 
-The public QA subset is stored in:
-
-- [L1.json](data/benchmark/L1.json)
-- [L2.json](data/benchmark/L2.json)
-- [L3.json](data/benchmark/L3.json)
-
-Each file contains a flat sample list for one benchmark level.
-
-### Transcript Files
-
-The transcript files used by the public subset are stored in:
+The aligned transcript files are under:
 
 - [data/transcripts/vcsum](data/transcripts/vcsum)
 
-Each sample in the benchmark points to a transcript through `source_file` and `transcript_path`.
+## 3. Data Schema
 
-## JSON Format
+### 3.1 Benchmark JSON
 
-### Benchmark JSON
-
-Each level file follows this structure:
+Each released level file follows the schema below:
 
 ```json
 {
@@ -117,27 +77,27 @@ Each level file follows this structure:
 }
 ```
 
-### Benchmark Field Description
+Field description:
 
 - `dataset`: dataset name
-- `subset`: release type of the current file
+- `subset`: release type
 - `level`: benchmark level (`L1`, `L2`, `L3`)
-- `sample_count`: number of samples in the file
-- `sample_id`: public sample identifier in this release
-- `source_file`: transcript filename aligned to the sample
-- `query_id`: original query identifier from the cleaned benchmark pipeline
-- `topic`: topic tag carried from evidence mining / QA construction
-- `pattern`: normalized reasoning pattern
-  - `L1` / `L2`: always `N/A`
+- `sample_count`: number of released instances in the file
+- `sample_id`: public sample identifier
+- `source_file`: aligned transcript filename
+- `query_id`: original cleaned-benchmark query identifier
+- `topic`: topic tag inherited from evidence mining / QA construction
+- `pattern`: reasoning pattern label
+  - `L1` and `L2`: always `N/A`
   - `L3`: `A`, `B`, or `C`
 - `question`: benchmark question
 - `gold_answer`: manually cleaned reference answer
-- `evidence_ids`: transcript utterance IDs supporting the answer
+- `evidence_ids`: supporting utterance IDs
 - `transcript_path`: relative path to the aligned transcript file
 
-### Transcript JSON
+### 3.2 Transcript JSON
 
-Each transcript file is stored in a unified VCSum-style JSON format:
+Each transcript file is stored in a unified JSON format:
 
 ```json
 {
@@ -155,69 +115,24 @@ Each transcript file is stored in a unified VCSum-style JSON format:
 }
 ```
 
-### Transcript Field Description
+Field description:
 
 - `dataset`: dataset family name
-- `source_dataset`: original source dataset name
+- `source_dataset`: original source dataset
 - `vcsum_id`: original VCSum instance identifier
-- `av_num`: VCSum meeting ID
-- `split`: original split (`train`, `dev`, `test`)
+- `av_num`: VCSum meeting identifier
+- `split`: original split
 - `speakers`: speaker list
-- `utterances`: ordered meeting utterances
+- `utterances`: ordered utterance list
 - `utterances[].id`: utterance ID used by `evidence_ids`
 - `utterances[].speaker_id`: speaker index
 - `utterances[].text`: utterance content
 
-## Scripts
+## 4. Prompt and Output Protocol
 
-### Data Construction Scripts
+The public repository releases the concrete prompt templates used in the benchmark pipeline. These are operational prompts rather than illustrative examples and are documented in bilingual form in [docs/prompt_reference.md](docs/prompt_reference.md).
 
-The main construction scripts are under [scripts/data_construction](scripts/data_construction):
-
-- `L1_evidence.py`
-- `L2_evidence.py`
-- `L3_evidence.py`
-- `qa_gen.py`
-- `benchmark_audit.py`
-- `benchmark_cleanup.py`
-- `merge_benchmarks.py`
-- `run_benchmark_pipeline.sh`
-
-These public copies are cleaned for release:
-
-- hard-coded API keys have been removed
-- API access is controlled through environment variables
-- paths are adjusted for repository-local execution
-
-### Evaluation Script
-
-The evaluation script is under [scripts/evaluation/acmmm_eval.py](scripts/evaluation/acmmm_eval.py).
-
-It implements an ACMMM-style rubric with separate scoring logic for `L1`, `L2`, and `L3`.
-
-## Prompt Documentation
-
-Prompt documentation is provided in:
-
-- [prompt_reference.md](docs/prompt_reference.md)
-
-This file contains **concrete Chinese prompts and English translations** for:
-
-- concrete evidence mining prompt templates
-- concrete QA generation prompt templates
-- concrete audit prompts
-- concrete cleanup prompts
-- concrete evaluation prompts
-
-## Supplementary Materials
-
-This section provides the supplementary material for the EMUG-Bench paper, including prompt/output protocol, evaluation sensitivity, annotation and cleanup statistics, release/access policy, L3 subtype analysis, and cross-judge robustness.
-
-### 1. Full Prompt and Output Protocol
-
-The public repository releases the concrete prompt templates used in the benchmark pipeline. These are operational prompts rather than illustrative examples, and they are documented in bilingual form in [docs/prompt_reference.md](docs/prompt_reference.md).
-
-Released prompt stages:
+Covered prompt stages:
 
 - L1 evidence mining
 - L2 evidence mining
@@ -228,7 +143,9 @@ Released prompt stages:
 - cleanup rewrite
 - evaluation judge
 
-Evidence mining returns structured evidence groups. L1/L2 use:
+### 4.1 Evidence Mining Output
+
+L1/L2 evidence mining returns:
 
 ```json
 {
@@ -242,7 +159,7 @@ Evidence mining returns structured evidence groups. L1/L2 use:
 }
 ```
 
-L3 additionally includes a pattern field:
+L3 evidence mining additionally includes a pattern field:
 
 ```json
 {
@@ -257,7 +174,7 @@ L3 additionally includes a pattern field:
 }
 ```
 
-QA generation returns:
+### 4.2 QA Generation Output
 
 ```json
 {
@@ -266,7 +183,7 @@ QA generation returns:
 }
 ```
 
-Audit returns one structured decision per sample:
+### 4.3 Audit Output
 
 ```json
 {
@@ -281,7 +198,7 @@ Audit returns one structured decision per sample:
 }
 ```
 
-Cleanup rewrite returns:
+### 4.4 Cleanup Rewrite Output
 
 ```json
 {
@@ -293,7 +210,60 @@ Cleanup rewrite returns:
 
 The evaluation pipeline scores answer quality, evidence grounding, level-specific skill, penalties, and citation overlap from utterance-ID evidence references.
 
-### 2. Evaluation Framework Details and Sensitivity Analysis
+## 5. Annotation, Audit, and Cleanup
+
+The benchmark construction pipeline has four stages:
+
+1. multi-level evidence mining
+2. QA generation
+3. audit
+4. cleanup and post-audit
+
+All model-assisted stages use GPT-5, while all final retained QA instances and evidence annotations are manually checked before inclusion in the released benchmark.
+
+Audit evaluates:
+
+- level fit
+- question leakage
+- evidence sufficiency
+- difficulty alignment
+
+Audit actions are:
+
+- `keep`
+- `downgrade`
+- `upgrade`
+- `rewrite`
+- `drop`
+
+In the paper text, `upgrade` and `downgrade` are abstracted as `relabel`.
+
+### 5.1 Cleanup Statistics
+
+| Quantity | Count | Ratio |
+|---|---:|---:|
+| Candidate instances | 1729 | 100.00% |
+| Keep | 1042 | 60.27% |
+| Relabel | 511 | 29.55% |
+| Rewrite | 175 | 10.12% |
+| Drop | 1 | 0.06% |
+| Final retained | 1708 | 98.79% |
+| Final removed | 21 | 1.21% |
+
+Final retained instances consist of:
+
+- kept unchanged: `1042`
+- moved after relabel: `511`
+- rewritten and passed post-audit: `155`
+
+Final removed instances consist of:
+
+- direct drop: `1`
+- post-audit failure after rewrite: `20`
+
+These statistics show that the cleanup stage is conservative: most imperfect instances are repaired through relabeling or QA rewrite rather than being removed from the final benchmark.
+
+## 6. Evaluation Framework and Sensitivity Analysis
 
 The main paper uses:
 
@@ -321,7 +291,7 @@ Penalty settings:
 - L3 auxiliary subtype error: `3`
 - penalty cap: `30`
 
-To test whether the main conclusions depend on a narrow coefficient choice, we recomputed the overall scores of the seven frontier models under six alternative settings.
+To test whether the main conclusions depend on a narrow coefficient choice, we recomputed the frontier-model scores under six alternative settings.
 
 | Setting | A | E | L | Penalty Scale |
 |---|---:|---:|---:|---:|
@@ -331,6 +301,8 @@ To test whether the main conclusions depend on a narrow coefficient choice, we r
 | Reasoning-heavy | 0.30 | 0.30 | 0.40 | 1.0 |
 | Low-penalty | 0.30 | 0.40 | 0.30 | 0.5 |
 | High-penalty | 0.30 | 0.40 | 0.30 | 1.5 |
+
+### 6.1 Recomputed Overall Scores
 
 | Model | Default | Balanced | Answer-heavy | Reasoning-heavy | Low-penalty | High-penalty |
 |---|---:|---:|---:|---:|---:|---:|
@@ -342,6 +314,8 @@ To test whether the main conclusions depend on a narrow coefficient choice, we r
 | Claude-Opus-4.6 | 73.78 | 74.52 | 74.91 | 74.88 | 75.44 | 72.37 |
 | DeepSeek-V3.2 | 72.27 | 72.85 | 73.14 | 73.16 | 73.73 | 71.10 |
 
+### 6.2 Ranking Stability
+
 | Setting | Ranking | Spearman vs. Default |
 |---|---|---:|
 | Default grounding-heavy | Gemini-3-Pro > GLM-5 > Qwen3.5-397B > GPT-5 > Qwen-Plus > Claude-Opus-4.6 > DeepSeek-V3.2 | 1.0 |
@@ -351,83 +325,11 @@ To test whether the main conclusions depend on a narrow coefficient choice, we r
 | Low-penalty | Gemini-3-Pro > GLM-5 > Qwen3.5-397B > GPT-5 > Qwen-Plus > Claude-Opus-4.6 > DeepSeek-V3.2 | 1.0 |
 | High-penalty | Gemini-3-Pro > GLM-5 > Qwen3.5-397B > GPT-5 > Qwen-Plus > Claude-Opus-4.6 > DeepSeek-V3.2 | 1.0 |
 
-Across all six settings, `L3` remains the hardest level for every frontier model and the frontier-model ordering remains unchanged.
+Across all six settings, `L3` remains the hardest level for every frontier model and the model ordering is unchanged. This indicates that the headline conclusions are not an artifact of one specific coefficient choice.
 
-### 3. Annotation / Audit / Cleanup Protocol
+## 7. L3 Subtype-wise Results
 
-The construction pipeline has four stages:
-
-1. multi-level evidence mining
-2. QA generation
-3. audit
-4. cleanup and post-audit
-
-All model-assisted stages use GPT-5, while all final retained QA instances and evidence annotations are manually checked before inclusion in the released benchmark.
-
-Audit evaluates:
-
-- level fit
-- question leakage
-- evidence sufficiency
-- difficulty alignment
-
-Audit actions are:
-
-- `keep`
-- `downgrade`
-- `upgrade`
-- `rewrite`
-- `drop`
-
-In the paper text, `upgrade` and `downgrade` are abstracted as `relabel`.
-
-| Quantity | Count | Ratio |
-|---|---:|---:|
-| Candidate instances | 1729 | 100.00% |
-| Keep | 1042 | 60.27% |
-| Relabel | 511 | 29.55% |
-| Rewrite | 175 | 10.12% |
-| Drop | 1 | 0.06% |
-| Final retained | 1708 | 98.79% |
-| Final removed | 21 | 1.21% |
-
-Final retained instances consist of:
-
-- kept unchanged: `1042`
-- moved after relabel: `511`
-- rewritten and passed post-audit: `155`
-
-Final removed instances consist of:
-
-- direct drop: `1`
-- post-audit failure after rewrite: `20`
-
-### 4. Release / Access / Ethics Statement
-
-The public GitHub repository provides:
-
-- a sampled public benchmark subset
-- aligned transcript subset
-- data construction scripts
-- evaluation scripts
-- bilingual prompt documentation
-
-The full benchmark is packaged in the same normalized schema as the public release, but is not hosted on GitHub. Full access is controlled and intended for academic or research use.
-
-Contact:
-
-- `Yunpeng.Li21@student.xjtlu.edu.cn`
-
-Privacy safeguards:
-
-- all real-meeting transcripts are de-identified before release
-- personal and organization identifiers are replaced or removed
-- public GitHub hosting is restricted to the sample release
-- full release is distributed under controlled access rather than unrestricted hosting
-
-### 5. L3 Subtype-wise Results
-
-The full L3 benchmark contains:
+The full `L3` benchmark contains:
 
 | Subtype | Meaning | Count |
 |---|---|---:|
@@ -435,6 +337,10 @@ The full L3 benchmark contains:
 | B | Procedural noise | 15 |
 | C | Implicit rejection | 133 |
 | N/A | Legacy uncategorized pattern | 1 |
+
+Subtype `B` is much smaller than `A` and `C`, so subtype-wise conclusions for `B` should be interpreted cautiously.
+
+### 7.1 Mean L3 Scores by Subtype
 
 | Model | A | B | C |
 |---|---:|---:|---:|
@@ -449,21 +355,29 @@ The full L3 benchmark contains:
 | Qwen3.5-9B | 53.39 | 71.37 | 55.11 |
 | Qwen3.5-4B | 41.56 | 64.82 | 49.81 |
 
-Subtype `C` is the largest and remains challenging across models. Subtype `B` is smaller and should be interpreted more cautiously.
+Subtype `C` is the largest and remains challenging across models. Subtype `A` is also difficult. Subtype `B` appears easier for stronger models, but that pattern should be interpreted together with its limited sample count.
 
-### 6. Cross-Judge Robustness
+## 8. Cross-Judge Robustness
 
-We constructed a stratified robustness subset of `90` benchmark questions:
+To evaluate judge robustness, we constructed a stratified subset of `90` benchmark instances:
 
 - `30` from `L1`
 - `30` from `L2`
 - `30` from `L3`
 
-For `L3`, the subset covers subtype `A = 9`, `B = 6`, and `C = 15`.
+Within `L3`, the subset preserves subtype coverage with:
 
-This subset was re-scored with `gemini-3-pro-preview` as an alternative judge, while the main paper results use `GPT-5` as the judge. This is a cross-judge robustness analysis rather than a human-correlation analysis.
+- `A = 9`
+- `B = 6`
+- `C = 15`
 
-The theoretical maximum size is `630` scored items (`90` samples × `7` frontier models). The matched comparison size is `629`, because one `Claude-Opus-4.6` response on an `L3` sample was invalid and excluded by the evaluation pipeline.
+All cross-judge statistics reported below are computed on this same subset. Therefore, the `L1`, `L2`, and `L3` score tables are directly comparable across the two judges because they are based on the same `30/30/30` level split. The only exception is that one `Claude-Opus-4.6` prediction on an `L3` sample was invalid and excluded, so its `L3` statistics are computed over `29` matched items.
+
+The main paper uses `GPT-5` as the judge. For the robustness check, we re-scored the same subset with `gemini-3-pro-preview` as an alternative judge. This is a cross-judge robustness analysis rather than a human-correlation analysis.
+
+The theoretical maximum size is `630` judged model-instance pairs (`90` samples × `7` models). The matched comparison size is `629`.
+
+### 8.1 Sample-level and Level-wise Agreement
 
 | Metric | Value |
 |---|---:|
@@ -476,41 +390,56 @@ The theoretical maximum size is `630` scored items (`90` samples × `7` frontier
 | L2 | 210 | 63.56 | 70.30 | 0.8626 | 0.7927 |
 | L3 | 209 | 48.38 | 58.63 | 0.8609 | 0.8591 |
 
-#### L1 Mean Scores by Judge
+The alternative judge is systematically more lenient in absolute score, but the relative ordering of samples remains highly correlated across all three levels.
 
-| Model | GPT-5 A | GPT-5 E | GPT-5 L | GPT-5 Overall | Gemini A | Gemini E | Gemini L | Gemini Overall |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| Gemini-3-Pro | 24.48 | 31.06 | 25.30 | 79.17 | 26.96 | 32.21 | 26.90 | 85.73 |
-| GLM-5 | 22.84 | 26.49 | 23.50 | 69.16 | 26.68 | 30.58 | 27.00 | 83.26 |
-| Qwen3.5-397B | 23.84 | 27.53 | 23.60 | 71.64 | 26.68 | 30.51 | 26.20 | 83.05 |
-| GPT-5 | 19.76 | 22.05 | 19.30 | 57.63 | 20.60 | 24.35 | 21.00 | 64.31 |
-| Qwen-Plus | 22.08 | 26.34 | 22.70 | 67.13 | 24.16 | 29.04 | 24.20 | 75.40 |
-| Claude-Opus-4.6 | 23.52 | 27.16 | 23.30 | 71.01 | 27.12 | 30.35 | 27.30 | 83.53 |
-| DeepSeek-V3.2 | 21.04 | 26.18 | 22.50 | 67.05 | 25.48 | 30.07 | 26.00 | 81.22 |
+### 8.2 Per-level Mean Scores by Judge
 
-#### L2 Mean Scores by Judge
+The following tables report the mean `A`, `E`, `L`, and overall scores for the seven frontier models. All values are computed from the same `30`-instance subset for each level, except `Claude-Opus-4.6` on `L3`, where one invalid response reduces the matched count to `29`.
 
-| Model | GPT-5 A | GPT-5 E | GPT-5 L | GPT-5 Overall | Gemini A | Gemini E | Gemini L | Gemini Overall |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| Gemini-3-Pro | 22.68 | 29.85 | 22.90 | 73.80 | 23.96 | 31.02 | 23.30 | 77.71 |
-| GLM-5 | 22.60 | 28.29 | 23.00 | 70.89 | 24.08 | 29.61 | 24.00 | 76.78 |
-| Qwen3.5-397B | 21.88 | 27.69 | 22.30 | 69.20 | 23.32 | 29.19 | 23.40 | 74.96 |
-| GPT-5 | 17.52 | 23.48 | 17.60 | 54.47 | 17.88 | 23.64 | 17.90 | 57.09 |
-| Qwen-Plus | 18.32 | 23.31 | 18.70 | 55.70 | 19.52 | 26.07 | 19.70 | 62.19 |
-| Claude-Opus-4.6 | 19.96 | 23.98 | 21.40 | 59.97 | 23.12 | 28.18 | 23.80 | 73.59 |
-| DeepSeek-V3.2 | 19.32 | 24.89 | 19.70 | 60.88 | 21.64 | 27.20 | 21.90 | 69.74 |
+#### L1
 
-#### L3 Mean Scores by Judge
+| Model | Count | GPT-5 A | GPT-5 E | GPT-5 L | GPT-5 Overall | Gemini A | Gemini E | Gemini L | Gemini Overall |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Gemini-3-Pro | 30 | 24.48 | 31.06 | 25.30 | 79.17 | 26.96 | 32.21 | 26.90 | 85.73 |
+| GLM-5 | 30 | 22.84 | 26.49 | 23.50 | 69.16 | 26.68 | 30.58 | 27.00 | 83.26 |
+| Qwen3.5-397B | 30 | 23.84 | 27.53 | 23.60 | 71.64 | 26.68 | 30.51 | 26.20 | 83.05 |
+| GPT-5 | 30 | 19.76 | 22.05 | 19.30 | 57.63 | 20.60 | 24.35 | 21.00 | 64.31 |
+| Qwen-Plus | 30 | 22.08 | 26.34 | 22.70 | 67.13 | 24.16 | 29.04 | 24.20 | 75.40 |
+| Claude-Opus-4.6 | 30 | 23.52 | 27.16 | 23.30 | 71.01 | 27.12 | 30.35 | 27.30 | 83.53 |
+| DeepSeek-V3.2 | 30 | 21.04 | 26.18 | 22.50 | 67.05 | 25.48 | 30.07 | 26.00 | 81.22 |
 
-| Model | GPT-5 A | GPT-5 E | GPT-5 L | GPT-5 Overall | Gemini A | Gemini E | Gemini L | Gemini Overall |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| Gemini-3-Pro | 16.56 | 24.03 | 14.56 | 46.37 | 18.64 | 26.15 | 17.96 | 56.88 |
-| GLM-5 | 19.04 | 25.07 | 16.64 | 50.16 | 20.60 | 24.66 | 18.64 | 58.23 |
-| Qwen3.5-397B | 18.48 | 25.65 | 17.04 | 53.62 | 20.80 | 26.89 | 20.76 | 63.96 |
-| GPT-5 | 19.56 | 26.82 | 18.36 | 56.84 | 22.08 | 27.30 | 21.84 | 67.58 |
-| Qwen-Plus | 15.64 | 22.21 | 13.96 | 40.39 | 17.72 | 24.02 | 17.52 | 54.07 |
-| Claude-Opus-4.6 | 18.70 | 24.39 | 16.76 | 49.32 | 20.81 | 25.55 | 19.20 | 59.40 |
-| DeepSeek-V3.2 | 16.24 | 21.04 | 14.24 | 42.00 | 17.52 | 22.42 | 16.92 | 50.33 |
+#### L2
+
+| Model | Count | GPT-5 A | GPT-5 E | GPT-5 L | GPT-5 Overall | Gemini A | Gemini E | Gemini L | Gemini Overall |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Gemini-3-Pro | 30 | 22.68 | 29.85 | 22.90 | 73.80 | 23.96 | 31.02 | 23.30 | 77.71 |
+| GLM-5 | 30 | 22.60 | 28.29 | 23.00 | 70.89 | 24.08 | 29.61 | 24.00 | 76.78 |
+| Qwen3.5-397B | 30 | 21.88 | 27.69 | 22.30 | 69.20 | 23.32 | 29.19 | 23.40 | 74.96 |
+| GPT-5 | 30 | 17.52 | 23.48 | 17.60 | 54.47 | 17.88 | 23.64 | 17.90 | 57.09 |
+| Qwen-Plus | 30 | 18.32 | 23.31 | 18.70 | 55.70 | 19.52 | 26.07 | 19.70 | 62.19 |
+| Claude-Opus-4.6 | 30 | 19.96 | 23.98 | 21.40 | 59.97 | 23.12 | 28.18 | 23.80 | 73.59 |
+| DeepSeek-V3.2 | 30 | 19.32 | 24.89 | 19.70 | 60.88 | 21.64 | 27.20 | 21.90 | 69.74 |
+
+#### L3
+
+| Model | Count | GPT-5 A | GPT-5 E | GPT-5 L | GPT-5 Overall | Gemini A | Gemini E | Gemini L | Gemini Overall |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Gemini-3-Pro | 30 | 16.56 | 24.03 | 14.56 | 46.37 | 18.64 | 26.15 | 17.96 | 56.88 |
+| GLM-5 | 30 | 19.04 | 25.07 | 16.64 | 50.16 | 20.60 | 24.66 | 18.64 | 58.23 |
+| Qwen3.5-397B | 30 | 18.48 | 25.65 | 17.04 | 53.62 | 20.80 | 26.89 | 20.76 | 63.96 |
+| GPT-5 | 30 | 19.56 | 26.82 | 18.36 | 56.84 | 22.08 | 27.30 | 21.84 | 67.58 |
+| Qwen-Plus | 30 | 15.64 | 22.21 | 13.96 | 40.39 | 17.72 | 24.02 | 17.52 | 54.07 |
+| Claude-Opus-4.6 | 29 | 18.70 | 24.39 | 16.76 | 49.32 | 20.81 | 25.55 | 19.20 | 59.40 |
+| DeepSeek-V3.2 | 30 | 16.24 | 21.04 | 14.24 | 42.00 | 17.52 | 22.42 | 16.92 | 50.33 |
+
+The `L3` table addresses a key concern about judge bias. Under both judges, `GPT-5` remains the strongest `L3` model on this robustness subset:
+
+- `56.84` under the GPT-5 judge
+- `67.58` under the Gemini judge
+
+This indicates that the relatively strong `L3` performance of `GPT-5` is not created by using GPT-5 as the judge. At the same time, `GPT-5` does not lead on `L1` or `L2` under either judge, which explains why its overall ranking on the robustness subset is not the highest even though it remains strongest on `L3`.
+
+### 8.3 Model Ranking Under the Two Judges
 
 | Judge | Ranking |
 |---|---|
@@ -521,45 +450,16 @@ The theoretical maximum size is `630` scored items (`90` samples × `7` frontier
 |---|---:|
 | Spearman rank correlation | 0.9286 |
 
-Under both judges, `GPT-5` remains the strongest `L3` model on this robustness subset (`56.84` under GPT-5 judge and `67.58` under Gemini judge). This indicates that the relatively strong `L3` performance of `GPT-5` is not an artifact of using GPT-5 as the judge.
+The top two models swap positions under the alternative judge, while the remaining ranking is largely preserved.
 
-## Installation
+### 8.4 Penalty-flag Agreement
 
-```bash
-pip install -r requirements.txt
-```
+| Flag | Agreement | Cohen’s Kappa | GPT-5 Positive | Gemini Positive |
+|---|---:|---:|---:|---:|
+| contradiction | 0.9221 | 0.7283 | 124 | 93 |
+| hallucination | 0.8633 | 0.3846 | 115 | 39 |
+| l3_decision_flip_error | 0.9555 | 0.6973 | 62 | 38 |
+| l3_noise_contamination | 0.9491 | 0.7909 | 98 | 80 |
+| l3_implicit_rejection_miss | 0.9507 | 0.7752 | 91 | 66 |
 
-## Example Usage
-
-### Read the Public Benchmark
-
-```python
-import json
-
-with open("data/benchmark/L3.json", "r", encoding="utf-8") as f:
-    benchmark = json.load(f)
-
-sample = benchmark["samples"][0]
-print(sample["question"])
-print(sample["evidence_ids"])
-```
-
-### Run a Data Construction Script
-
-```bash
-export ACMMM_JUDGE_API_KEY=your_api_key
-python scripts/data_construction/L1_evidence.py
-```
-
-### Run the Evaluation Script
-
-```bash
-python scripts/evaluation/acmmm_eval.py --help
-```
-
-## Notes
-
-- This repository is designed to be readable and usable by external researchers.
-- The public release is intentionally smaller than the full internal benchmark.
-- The sampled public subset is meant for demonstration, lightweight evaluation, and repository transparency.
-- Full benchmark access requires explicit permission by email.
+Agreement is high for contradiction and the L3-specific penalty flags, while hallucination is visibly less stable than the other binary penalties under judge substitution.
