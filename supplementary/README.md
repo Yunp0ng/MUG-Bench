@@ -173,7 +173,19 @@ To check whether the main conclusions depend on one narrow coefficient choice, w
 
 ### 2.3 Sensitivity results
 
-The frontier-model ranking remains unchanged under all six settings.
+Table A1 reports the recomputed overall scores of the seven frontier models under all six coefficient settings.
+
+| Model | Default | Balanced | Answer-heavy | Reasoning-heavy | Low-penalty | High-penalty |
+|---|---:|---:|---:|---:|---:|---:|
+| Gemini-3-Pro | 82.64 | 83.05 | 83.21 | 83.30 | 83.44 | 82.04 |
+| GLM-5 | 78.94 | 79.58 | 79.90 | 79.91 | 80.09 | 77.99 |
+| Qwen3.5-397B | 78.68 | 79.29 | 79.58 | 79.62 | 79.86 | 77.68 |
+| GPT-5 | 74.62 | 75.20 | 75.52 | 75.47 | 75.87 | 73.57 |
+| Qwen-Plus | 74.05 | 74.67 | 75.00 | 74.97 | 75.54 | 72.86 |
+| Claude-Opus-4.6 | 73.78 | 74.52 | 74.91 | 74.88 | 75.44 | 72.37 |
+| DeepSeek-V3.2 | 72.27 | 72.85 | 73.14 | 73.16 | 73.73 | 71.10 |
+
+Table A2 reports the corresponding ranking stability.
 
 | Setting | Ranking | Spearman vs. Default |
 |---|---|---:|
@@ -184,15 +196,11 @@ The frontier-model ranking remains unchanged under all six settings.
 | Low-penalty | Gemini-3-Pro > GLM-5 > Qwen3.5-397B > GPT-5 > Qwen-Plus > Claude-Opus-4.6 > DeepSeek-V3.2 | 1.0 |
 | High-penalty | Gemini-3-Pro > GLM-5 > Qwen3.5-397B > GPT-5 > Qwen-Plus > Claude-Opus-4.6 > DeepSeek-V3.2 | 1.0 |
 
-This shows that the headline ranking is not an artifact of a single coefficient choice.
+These results show that the reported frontier-model ordering is stable under reasonable perturbations of the coefficient and penalty settings.
 
 ### 2.4 Stability of qualitative conclusions
 
-Across all six settings:
-
-- `L3` remains the hardest level for every frontier model
-- the top model group remains stable
-- changing penalty strength changes absolute scores but does not alter the main qualitative conclusions
+Across all six settings, `L3` remains the hardest level for every frontier model, the top model group remains unchanged, and varying the penalty strength changes absolute scores without changing the main qualitative conclusions of the paper.
 
 ## 3. Annotation / Audit / Cleanup Protocol
 
@@ -374,18 +382,16 @@ The theoretical maximum for this setup is:
 
 The final matched comparison size is `629`, because one Claude-Opus-4.6 prediction on an `L3` sample was an invalid response (`ERROR: Failed after retries.`) and was excluded by the evaluation pipeline.
 
-### 6.3 Per-sample correlation
+### 6.3 Cross-judge score agreement
 
-Across the matched `629` judge records:
+Across the matched `629` judge records, the two judges show strong sample-level agreement on total score.
 
 | Metric | Value |
 |---|---:|
 | Pearson correlation on total score | 0.8588 |
 | Spearman correlation on total score | 0.8460 |
 
-This indicates strong agreement in relative sample-level scoring.
-
-### 6.4 Level-wise correlation
+Table A3 reports level-wise agreement.
 
 | Level | Count | GPT-5 Mean | Gemini Mean | Pearson | Spearman |
 |---|---:|---:|---:|---:|---:|
@@ -393,24 +399,34 @@ This indicates strong agreement in relative sample-level scoring.
 | L2 | 210 | 63.56 | 70.30 | 0.8626 | 0.7927 |
 | L3 | 209 | 48.38 | 58.63 | 0.8609 | 0.8591 |
 
-The alternative judge is systematically more lenient in absolute score, but level-wise correlations remain high.
+The alternative judge is more lenient in absolute score, but the relative ordering of samples remains highly correlated across levels.
 
-### 6.5 Model ranking comparison
+### 6.4 Cross-judge model scores and ranking
 
-Mean-score ranking under the two judges:
+Table A4 reports the per-model mean scores under the two judges on the same robustness subset.
+
+| Model | Count | GPT-5 Judge Mean | Gemini Judge Mean |
+|---|---:|---:|---:|
+| Qwen3.5-397B | 90 | 64.82 | 73.99 |
+| Gemini-3-Pro | 90 | 66.45 | 73.44 |
+| GLM-5 | 90 | 63.40 | 72.76 |
+| Claude-Opus-4.6 | 89 | 60.22 | 72.32 |
+| DeepSeek-V3.2 | 90 | 56.64 | 67.10 |
+| Qwen-Plus | 90 | 54.40 | 63.89 |
+| GPT-5 | 90 | 56.31 | 62.99 |
+
+Table A5 reports the resulting model ordering.
 
 | Judge | Ranking |
 |---|---|
 | GPT-5 judge | Gemini-3-Pro > Qwen3.5-397B > GLM-5 > Claude-Opus-4.6 > DeepSeek-V3.2 > GPT-5 > Qwen-Plus |
 | Gemini judge | Qwen3.5-397B > Gemini-3-Pro > GLM-5 > Claude-Opus-4.6 > DeepSeek-V3.2 > Qwen-Plus > GPT-5 |
 
-Ranking correlation:
-
 | Metric | Value |
 |---|---:|
 | Spearman rank correlation | 0.9286 |
 
-This suggests that the top-model ordering is highly stable, although the top two models swap positions and the bottom two models also swap positions under the alternative judge.
+The top two models swap positions under the alternative judge, while the remaining ordering is largely preserved.
 
 ### 6.6 Penalty-flag agreement
 
@@ -422,11 +438,7 @@ This suggests that the top-model ordering is highly stable, although the top two
 | l3_noise_contamination | 0.9491 | 0.7909 | 98 | 80 |
 | l3_implicit_rejection_miss | 0.9507 | 0.7752 | 91 | 66 |
 
-Interpretation:
-
-- agreement is high for contradiction and L3-specific penalty flags
-- hallucination is notably less stable than the other flags
-- this suggests that binary failure detection is more reliable for contradiction and L3-specific mistakes than for hallucination judgments
+Agreement is high for contradiction and L3-specific penalty flags, while hallucination is less stable than the other flags under judge substitution.
 
 ## 7. Release Notes
 
