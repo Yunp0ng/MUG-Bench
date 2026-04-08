@@ -215,13 +215,7 @@ Additional supplementary materials for the paper submission are provided in:
 
 - [supplementary/README.md](supplementary/README.md)
 
-This supplementary folder currently includes:
-
-- a structured supplementary write-up
-- a bilingual prompt reference mirror
-- evaluation sensitivity tables
-- audit / cleanup statistics
-- L3 subtype distribution and subtype-wise results
+The supplementary material is written directly in the README above, with inline tables and analysis for reproducibility and review. It does not require readers to inspect raw CSV or JSON artifact files.
 
 ## Installation
 
