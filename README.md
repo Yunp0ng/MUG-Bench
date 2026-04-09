@@ -1,6 +1,6 @@
 # Supplementary Material for EMUG-Bench
 
-This document provides supplementary material for the EMUG-Bench submission. It complements the main paper by clarifying the public release format, prompt and output protocol, annotation and cleanup procedure, evaluation sensitivity, L3 subtype statistics, cross-judge robustness, and the implementation details of the lightweight RAG baseline.
+This document provides supplementary material for the EMUG-Bench submission. It complements the main paper by clarifying the public release format, prompt and output protocol, annotation and cleanup procedure, evaluation sensitivity, cross-judge robustness, and the implementation details of the lightweight RAG baseline.
 
 ## 1. Public Release and Access
 
@@ -323,37 +323,7 @@ To make the coefficient sensitivity more interpretable, Tables A2-A4 report the 
 
 Across all six settings, `L3` remains the hardest level for every frontier model and the model ordering is unchanged. This supports the interpretation that the headline conclusions reported in the main paper are not artifacts of one specific coefficient choice.
 
-## 7. L3 Subtype-wise Results
-
-The full `L3` benchmark contains:
-
-| Subtype | Meaning | Count |
-|---|---|---:|
-| A | Decision reversal | 52 |
-| B | Procedural noise | 15 |
-| C | Implicit rejection | 133 |
-| N/A | Legacy uncategorized pattern | 1 |
-
-Subtype `B` is much smaller than `A` and `C`, so subtype-wise conclusions for `B` should be interpreted cautiously.
-
-### 7.1 Mean L3 Scores by Subtype
-
-| Model | A | B | C |
-|---|---:|---:|---:|
-| Claude-Opus-4.6 | 59.73 | 60.23 | 58.45 |
-| DeepSeek-V3.2 | 53.53 | 69.43 | 50.37 |
-| Gemini-3-Pro | 57.90 | 82.30 | 61.89 |
-| GLM-5 | 57.62 | 71.41 | 61.89 |
-| GPT-5 | 62.51 | 82.37 | 68.89 |
-| Qwen-Plus | 51.68 | 68.68 | 54.42 |
-| Qwen3.5-397B | 54.30 | 83.82 | 62.40 |
-| Qwen3.5-27B | 56.38 | 70.92 | 55.97 |
-| Qwen3.5-9B | 53.39 | 71.37 | 55.11 |
-| Qwen3.5-4B | 41.56 | 64.82 | 49.81 |
-
-These subtype statistics complement the aggregate `L3` results in the main paper. Subtype `C` is the largest and remains challenging across models; subtype `A` is also difficult. Subtype `B` appears easier for stronger models, but that pattern should be interpreted together with its limited sample count.
-
-## 8. Cross-Judge Robustness
+## 7. Cross-Judge Robustness
 
 To evaluate judge robustness, we constructed a stratified subset of `90` benchmark instances:
 
@@ -373,7 +343,7 @@ The main paper uses `GPT-5` as the judge. For the robustness check, we re-scored
 
 The theoretical maximum size is `630` judged model-instance pairs (`90` samples × `7` models). The matched comparison size is `629`.
 
-### 8.1 Sample-level and Level-wise Agreement
+### 7.1 Sample-level and Level-wise Agreement
 
 | Metric | Value |
 |---|---:|
@@ -388,7 +358,7 @@ The theoretical maximum size is `630` judged model-instance pairs (`90` samples 
 
 The alternative judge is systematically more lenient in absolute score, but the relative ordering of samples remains highly correlated across all three levels.
 
-### 8.2 Per-level Mean Scores by Judge
+### 7.2 Per-level Mean Scores by Judge
 
 The following tables report the mean `A`, `E`, `L`, and overall scores for the seven frontier models. All values are computed from the same `30`-instance subset for each level, except `Claude-Opus-4.6` on `L3`, where one invalid response reduces the matched count to `29`.
 
@@ -435,7 +405,7 @@ The `L3` table addresses a key concern raised by the review process about possib
 
 This indicates that the relatively strong `L3` performance of `GPT-5` is not created by using GPT-5 as the judge. At the same time, `GPT-5` does not lead on `L1` or `L2` under either judge, which explains why its overall ranking on the robustness subset is not the highest even though it remains strongest on `L3`.
 
-### 8.3 Model Ranking Under the Two Judges
+### 7.3 Model Ranking Under the Two Judges
 
 | Judge | Ranking |
 |---|---|
@@ -448,7 +418,7 @@ This indicates that the relatively strong `L3` performance of `GPT-5` is not cre
 
 The top two models swap positions under the alternative judge, while the remaining ranking is largely preserved.
 
-### 8.4 Penalty-flag Agreement
+### 7.4 Penalty-flag Agreement
 
 | Flag | Agreement | Cohen’s Kappa | GPT-5 Positive | Gemini Positive |
 |---|---:|---:|---:|---:|
@@ -460,17 +430,17 @@ The top two models swap positions under the alternative judge, while the remaini
 
 Agreement is high for contradiction and the L3-specific penalty flags, while hallucination is visibly less stable than the other binary penalties under judge substitution.
 
-## 9. RAG Baseline Details and Failure Analysis
+## 8. RAG Baseline Details and Failure Analysis
 
 This section supplements the brief RAG description in the main paper. The reported RAG results come from a lightweight adaptive Meeting-RAG baseline rather than a heavily tuned retrieval system.
 
-### 9.1 Implementation Details
+### 8.1 Implementation Details
 
 The baseline uses overlapping utterance-window chunks rather than semantic segments or oracle evidence spans. Each chunk contains 10 utterances with a stride of 5, and retrieval is based on lexical overlap between the question and chunk text, with `top_k = 6` in the first round. Under the adaptive routing policy, `L2` and `L3` default to multi-round retrieval, while `L1` switches to multi-round only for questions with markers such as “最终”, “决定”, or “结论”. In the second round, the model first generates a follow-up query from the initial answer hypothesis and then retrieves additional chunks with `top_k = 3`. The generation side uses a constrained JSON output containing `final_answer`, `predicted_evidence_ids`, and `used_chunk_ids`, with `temperature = 0.1`, `max_retries = 3`, and `request_timeout = 180`.
 
 This implementation is intentionally lightweight. It does not include dense retrieval, BM25-hybrid retrieval, reranking, speaker-aware retrieval scoring, event-boundary segmentation, or oracle-evidence retrieval. Accordingly, the negative RAG result in the main paper should be interpreted as a result about this specific lightweight baseline rather than as a general claim about all retrieval-augmented approaches.
 
-### 9.2 Main Quantitative Result
+### 8.2 Main Quantitative Result
 
 Table A6 compares the three Qwen small models with and without the lightweight RAG pipeline. Scores are level-wise total scores under the same evaluation framework as the main paper.
 
@@ -482,7 +452,7 @@ Table A6 compares the three Qwen small models with and without the lightweight R
 
 The degradation is consistent across all three models and all three levels, with the largest drops on `L1` and `L3`. This pattern aligns with the main paper’s qualitative claim that naive retrieval is particularly mismatched to local precision and final-state reasoning in meetings.
 
-### 9.3 Error Profile Under RAG
+### 8.3 Error Profile Under RAG
 
 The RAG runs also increase failure rates on contradiction and L3-specific penalties. Table A7 reports the main error statistics for the three RAG models.
 
@@ -501,8 +471,6 @@ For comparison, the non-RAG versions are substantially lower on the same error f
 - Qwen3.5-27B:
   contradiction `0.082`, decision-flip `0.239`, noise contamination `0.393`, implicit-rejection miss `0.398`
 
-### 9.4 Failure Analysis
+### 8.4 Failure Analysis
 
-The failure cases suggest that the negative RAG result arises from a mismatch between this lightweight retrieval design and the structure of meeting transcripts. For `L1`, the main problem is retrieval granularity: even though the target evidence is local, a 10-utterance sliding window is often still too coarse, so the model retrieves nearby procedural discussion rather than the decisive utterance itself. For `L2`, the second retrieval round does not reliably recover from an off-target first round, because the follow-up query is generated from the model’s initial answer hypothesis; once that hypothesis is already wrong, the second round tends to reinforce the same mistaken path rather than recover the missing cross-turn chain.
-
-The same design is even more fragile for `L3`, where the answer depends on final-state tracking across long discussion trajectories. In these cases the retriever often surfaces intermediate proposals, temporary clarifications, or adjacent agenda content instead of the final decision, implicit rejection, or late-stage reversal that the question requires. This is consistent with the high `l3_noise_contamination` and `l3_implicit_rejection_miss` rates in Table A7. Taken together, these results reinforce the main paper’s conclusion that meeting understanding requires retrieval strategies designed more carefully for turn structure, evidence chaining, and decision dynamics; a generic sliding-window pipeline is not enough to support reliable evidence-grounded meeting QA.
+The observed failure pattern is consistent with the discussion in the main paper and mainly reflects a mismatch between this lightweight retrieval design and the structure of meeting transcripts: a fixed sliding-window retriever is often too coarse for `L1`, does not reliably recover missing cross-turn evidence for `L2`, and is especially vulnerable on `L3`, where correct answering depends on tracking final decisions across long discussion trajectories rather than retrieving locally similar process fragments. Correspondingly, the RAG runs show higher contradiction, decision-flip, noise-contamination, and implicit-rejection-miss rates, reinforcing the paper’s conclusion that meeting understanding requires more carefully designed retrieval strategies for turn structure, evidence chaining, and decision dynamics.
