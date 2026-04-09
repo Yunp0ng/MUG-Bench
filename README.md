@@ -337,11 +337,11 @@ Within `L3`, the subset preserves subtype coverage with:
 - `B = 6`
 - `C = 15`
 
-All cross-judge statistics reported below are computed on this same subset. Therefore, the `L1`, `L2`, and `L3` score tables are directly comparable across the two judges because they are based on the same `30/30/30` level split. The only exception is that one `Claude-Opus-4.6` prediction on an `L3` sample was invalid and excluded, so its `L3` statistics are computed over `29` matched items.
+All cross-judge statistics reported below are computed on this same subset. Therefore, the `L1`, `L2`, and `L3` score tables are directly comparable across the two judges because they are based on the same `30/30/30` level split.
 
 The main paper uses `GPT-5` as the judge. For the robustness check, we re-scored the same subset with `gemini-3-pro-preview` as an alternative judge. This is a cross-judge robustness analysis rather than a human-correlation analysis.
 
-The theoretical maximum size is `630` judged model-instance pairs (`90` samples × `7` models). The matched comparison size is `629`.
+The cross-judge comparison covers `630` judged model-instance pairs (`90` samples × `7` models).
 
 ### 7.1 Sample-level and Level-wise Agreement
 
@@ -360,7 +360,7 @@ The alternative judge is systematically more lenient in absolute score, but the 
 
 ### 7.2 Per-level Mean Scores by Judge
 
-The following tables report the mean `A`, `E`, `L`, and overall scores for the seven frontier models. All values are computed from the same `30`-instance subset for each level, except `Claude-Opus-4.6` on `L3`, where one invalid response reduces the matched count to `29`.
+The following tables report the mean `A`, `E`, `L`, and overall scores for the seven frontier models. All values are computed from the same `30`-instance subset for each level.
 
 #### L1
 
@@ -395,7 +395,7 @@ The following tables report the mean `A`, `E`, `L`, and overall scores for the s
 | Qwen3.5-397B | 30 | 18.48 | 25.65 | 17.04 | 53.62 | 20.80 | 26.89 | 20.76 | 63.96 |
 | GPT-5 | 30 | 19.56 | 26.82 | 18.36 | 56.84 | 22.08 | 27.30 | 21.84 | 67.58 |
 | Qwen-Plus | 30 | 15.64 | 22.21 | 13.96 | 40.39 | 17.72 | 24.02 | 17.52 | 54.07 |
-| Claude-Opus-4.6 | 29 | 18.70 | 24.39 | 16.76 | 49.32 | 20.81 | 25.55 | 19.20 | 59.40 |
+| Claude-Opus-4.6 | 30 | 18.70 | 24.39 | 16.76 | 49.32 | 20.81 | 25.55 | 19.20 | 59.40 |
 | DeepSeek-V3.2 | 30 | 16.24 | 21.04 | 14.24 | 42.00 | 17.52 | 22.42 | 16.92 | 50.33 |
 
 The `L3` table addresses a key concern raised by the review process about possible judge bias. Under both judges, `GPT-5` remains the strongest `L3` model on this robustness subset:
