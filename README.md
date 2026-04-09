@@ -420,6 +420,8 @@ The top two models swap positions under the alternative judge, while the remaini
 
 ### 7.4 Penalty-flag Agreement
 
+Table A5 compares whether the two judges assign the same binary penalty flags to the same samples. `Agreement` is the raw proportion of samples on which the two judges make the same yes/no decision for a given flag. `Cohen's Kappa` reports a stricter agreement measure that discounts agreement expected by chance. `GPT-5 Positive` and `Gemini Positive` denote the numbers of samples for which each judge activates the corresponding penalty flag.
+
 | Flag | Agreement | Cohen’s Kappa | GPT-5 Positive | Gemini Positive |
 |---|---:|---:|---:|---:|
 | contradiction | 0.9221 | 0.7283 | 124 | 93 |
